@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Matematicas.top - Clases particulares y recursos online para estudiantes de 13 a 18 años. Entiende, aprende y aprueba matemáticas con nuestro método innovador.">
-    <title>Matematicas.top - Entiende, Aprende y Aprueba Matemáticas</title>
+    <title>Matematicas.top</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://www.matematicas.top">
     <meta name="robots" content="index, follow">
@@ -14,226 +14,8 @@
     <meta property="og:url" content="https://www.matematicas.top">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<style>
-:root {
-    --primary-color: #3f87a6;
-    --secondary-color: #ebf8e1;
-    --text-color: #333;
-    --background-color: #fff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    background-color: var(--primary-color);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #fff;
-}
-
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    font-weight: 300;
-}
-
-section {
-    padding: 5rem 0;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#sobre-mi .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.bio {
-    max-width: 600px;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.video-grid iframe {
-    width: 100%;
-    height: 200px;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial {
-    background-color: var(--secondary-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial p {
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.testimonial span {
-    font-weight: bold;
-}
-
-.button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #2f6982;
-}
-
-footer {
-    background-color: var(--primary-color);
-    color: #fff;
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.social-links a {
-    color: var(--secondary-color);
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #fff;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    #sobre-mi .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Animación para el efecto de aparición */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeInUp 0.5s ease-out forwards;
-}
-</style>
-<html lang="es">
 <body>
     <header>
         <nav>
@@ -241,21 +23,21 @@ footer {
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre Mí</a></li>
                 <li><a href="#videos">Videos</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#comentarios">Comentarios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="inicio" class="hero">
-            <h1>Matematicas.top</h1>
-            <p>Entiende, Aprende y Aprueba</p>
+        <section id="inicio" class="hero" style="height: 50vh;">
+            <h1 style="font-size: 2.5rem;">Matemáticas TOP</h1>
+            <div id="animatedText" class="animated-text"></div>
         </section>
 
         <section id="sobre-mi" class="fade-in">
             <div class="container">
-                <img src="foto-perfil.JPG" alt="Francisco Muñoz Galván" class="profile-img">
+                <img src="assets/img/foto-perfil.JPG" alt="Francisco Muñoz Galván" class="profile-img">
                 <div class="bio">
                     <h2>Francisco Muñoz Galván</h2>
                     <p>Matemático por la Universidad de Málaga con más de 5 años de experiencia ayudando a estudiantes de ESO y Bachillerato a superar los desafíos de las matemáticas.</p>
@@ -265,32 +47,23 @@ footer {
 
         <section id="videos" class="fade-in">
             <h2>Videos Recientes</h2>
-            <div class="video-grid">
+            <div class="video-grid" style="margin: 0 20px;">
                 <iframe src="https://www.youtube.com/embed/3L_me6FZm2c" title="Video de matemáticas 1" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/S8OeypYsqoI" title="Video de matemáticas 2" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/D2KOPuLijis" title="Video de matemáticas 3" allowfullscreen></iframe>
             </div>
-            <a href="https://www.youtube.com/@matematicastop" class="button" target="_blank" rel="noopener noreferrer">Ver más videos</a>
-        </section>
-
-        <section id="testimonios" class="fade-in">
-            <h2>Lo que dicen mis alumnos</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"Gracias a Francisco, por fin entiendo los conceptos que antes me parecían imposibles."</p>
-                    <span>- María, 4º ESO</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Sus videos me ayudaron a aprobar el examen de Selectividad. ¡Increíble profesor!"</p>
-                    <span>- Carlos, 2º Bachillerato</span>
-                </div>
-                <div class="testimonial">
-                    <p>"La forma en que explica hace que las matemáticas sean divertidas y fáciles de entender."</p>
-                    <span>- Laura, 1º Bachillerato</span>
-                </div>
+            <div style="text-align: center;">
+                <a href="https://www.youtube.com/@matematicastop" class="button" target="_blank" rel="noopener noreferrer">Ver más videos</a>
             </div>
         </section>
-    </main>
+        <section id="comentarios" class="fade-in">
+            <h2>Comentarios</h2>
+            <div class="comentarios-grid" style="margin-left: 20px; display: flex; gap: 10px;">
+                <img src="assets/img/comentario1.png" alt="Comentario 1" style="width: 450px; height: auto;">
+                <img src="assets/img/comentario2.png" alt="Comentario 2" style="width: 450px; height: auto;">
+                <img src="assets/img/comentario3.png" alt="Comentario 3" style="width: 450px; height: auto;">
+            </div>
+        </section>
 
     <footer id="contacto">
         <div class="social-links">
@@ -300,5 +73,7 @@ footer {
         </div>
         <p>&copy; 2024 Matematicas.top. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
