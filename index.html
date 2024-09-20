@@ -17,17 +17,18 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!--
     <header>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#profesores">Profesores</a></li>
                 <li><a href="#videos">Videos</a></li>
-                <li><a href="#comentarios">Comentarios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
+    -->
 
     <main>
         <section id="inicio" class="hero" style="height: 50vh;">
@@ -35,35 +36,36 @@
             <div id="animatedText" class="animated-text"></div>
         </section>
 
-        <section id="sobre-mi" class="fade-in">
+        <section id="profesores" class="fade-in">
             <div class="container">
                 <img src="assets/img/foto-perfil.JPG" alt="Francisco Muñoz Galván" class="profile-img">
                 <div class="bio">
                     <h2>Francisco Muñoz Galván</h2>
                     <p>Matemático por la Universidad de Málaga con más de 5 años de experiencia ayudando a estudiantes de ESO y Bachillerato a superar los desafíos de las matemáticas.</p>
+                    <a href="https://calendly.com/zumaquerodavid/30min" class="reserve-class-btn" target="_blank">
+                        Reserva una clase
+                    </a>
                 </div>
             </div>
         </section>
+        
 
         <section id="videos" class="fade-in">
-            <h2>Videos Recientes</h2>
-            <div class="video-grid" style="margin: 0 20px;">
+            <h2>Videos destacados</h2>
+            <div class="video-grid" style="margin: 0 200px;">
                 <iframe src="https://www.youtube.com/embed/3L_me6FZm2c" title="Video de matemáticas 1" allowfullscreen></iframe>
                 <iframe src="https://www.youtube.com/embed/S8OeypYsqoI" title="Video de matemáticas 2" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/D2KOPuLijis" title="Video de matemáticas 3" allowfullscreen></iframe>
             </div>
-            <div style="text-align: center;">
-                <a href="https://www.youtube.com/@matematicastop" class="button" target="_blank" rel="noopener noreferrer">Ver más videos</a>
+            <head>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            </head>
+            <div class="youtube-link-container">
+                <a href="https://www.youtube.com/@matematicastop" target="_blank" rel="noopener noreferrer" class="yt-link">
+                    <i class="fab fa-youtube yt-icon"></i> Ver más videos
+                </a>
             </div>
-        </section>
-        <section id="comentarios" class="fade-in">
-            <h2>Comentarios</h2>
-            <div class="comentarios-grid" style="margin-left: 20px; display: flex; gap: 10px;">
-                <img src="assets/img/comentario1.png" alt="Comentario 1" style="width: 450px; height: auto;">
-                <img src="assets/img/comentario2.png" alt="Comentario 2" style="width: 450px; height: auto;">
-                <img src="assets/img/comentario3.png" alt="Comentario 3" style="width: 450px; height: auto;">
-            </div>
-        </section>
+            
+            
 
     <footer id="contacto">
         <div class="social-links">

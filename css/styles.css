@@ -1,8 +1,9 @@
 :root {
-    --primary-color: #3f87a6;
-    --secondary-color: #ebf8e1;
+    --primary-color: #fee375; /* Teal */
+    --secondary-color: #f0f4f8; /* Soft light blue-gray */
     --text-color: #333;
     --background-color: #fff;
+    --button-color: #ff5047; /* Fun pink-red for engagement */
 }
 
 * {
@@ -11,11 +12,32 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
+    padding-top: 60px;
+}
+
+.reserve-class-btn {
+    display: inline-block;
+    background-color: var(--button-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-class-btn:hover {
+    background-color: #ff9176;
 }
 
 .container {
@@ -24,20 +46,6 @@ body {
     padding: 0 20px;
 }
 
-header {
-    background-color: var(--primary-color);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-}
 
 nav ul li {
     margin: 0 15px;
@@ -70,6 +78,8 @@ nav ul li a:hover {
     margin-bottom: 1rem;
 }
 
+
+
 .animated-text {
     font-size: 2rem;
     opacity: 0;
@@ -85,7 +95,6 @@ h2 {
     margin-bottom: 2rem;
     text-align: center;
 }
-
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -97,12 +106,13 @@ h2 {
     transform: translateY(0);
 }
 
-#sobre-mi .container {
+#profesores .container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
 }
+
 
 .profile-img {
     width: 200px;
@@ -111,47 +121,24 @@ h2 {
     object-fit: cover;
 }
 
+.profile-img {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.profile-img:hover {
+    filter: grayscale(0%);
+}
+
 .bio {
     max-width: 600px;
 }
 
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
 
-.video-grid iframe {
-    width: 100%;
-    height: 200px;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial {
-    background-color: var(--secondary-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial p {
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.testimonial span {
-    font-weight: bold;
-}
 
 .button {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: var(--button-color);
     color: #fff;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
@@ -160,7 +147,7 @@ h2 {
 }
 
 .button:hover {
-    background-color: #2f6982;
+    background-color: var(--button-hover-color);
 }
 
 footer {
@@ -190,7 +177,7 @@ footer {
         font-size: 1.2rem;
     }
 
-    #sobre-mi .container {
+    #profesores .container {
         flex-direction: column;
         text-align: center;
     }
@@ -199,27 +186,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-/* ... (previous CSS rules remain the same) ... */
 
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    padding-top: 60px; /* Add padding to account for fixed header */
-}
-
-main {
-    overflow: auto; /* Ensure main content is scrollable */
-}
-/* 
-section {
-    padding: 5rem 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
 
 .fade-in {
     opacity: 1; /* Change from 0 to 1 to ensure visibility */
@@ -227,14 +194,53 @@ section {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Remove .fade-in.appear class as it might be causing issues if JS isn't applying it */
-
-#sobre-mi .container,
-#videos .container,
-#comentarios .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.youtube-link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem; /* Add space above the link */
+    margin-bottom: 3rem; /* Add space below the link */
 }
 
-/* ... (rest of the CSS remains the same) ... */
+.yt-link {
+    display: inline-flex;
+    align-items: center;
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px; /* Make the text larger */
+    transition: color 0.3s ease;
+}
+
+.yt-link:hover {
+    color: #cc0000;
+}
+
+.yt-icon {
+    width: 32px; /* Increase icon size */
+    height: 32px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.yt-link:hover .yt-icon {
+    transform: scale(1.2);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts to screen size */
+    gap: 1.5rem; /* Space between videos */
+    justify-items: center; /* Ensures videos are centered within the grid */
+    margin: 0 auto; /* Centers the grid */
+    padding: 0 20px; /* Adds some horizontal padding */
+}
+
+.video-grid iframe {
+    width: 100%; /* Ensures responsiveness */
+    max-width: 560px; /* Max width to prevent it from stretching too wide */
+    height: 315px; /* 16:9 aspect ratio for the videos */
+    border: none; /* Removes the border */
+    border-radius: 15px; /* Adds rounded borders */
+    overflow: hidden; /* Ensures the video content doesn't overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
