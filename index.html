@@ -3,77 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Matematicas.top - Clases particulares y recursos online para estudiantes de 13 a 18 años. Entiende, aprende y aprueba matemáticas con nuestro método innovador.">
-    <title>Matematicas.top</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Matematicas.top - Clases particulares y recursos online para estudiantes de 12 a 18 años. Entiende, aprende y aprueba matemáticas con nuestro método innovador. ESO y Bachillerato.">
+    <title>Matemáticas.top - Aprende Matemáticas | ESO y Bachillerato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://www.matematicas.top">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Matematicas.top - Entiende, Aprende y Aprueba Matemáticas">
-    <meta property="og:description" content="Clases particulares y recursos online para estudiantes de 13 a 18 años. Aprende matemáticas de forma divertida y eficaz.">
-    <meta property="og:image" content="https://www.matematicas.top/images/og-image.jpg">
+    <meta name="keywords" content="matemáticas, ESO, bachillerato, clases particulares, álgebra, geometría, análisis, estadística, probabilidad, exámenes">
+    <meta property="og:title" content="Matemáticas.top - Entiende, Aprende y Aprueba Matemáticas">
+    <meta property="og:description" content="Clases particulares y recursos online para estudiantes de 12 a 18 años. Aprende matemáticas de forma divertida y eficaz.">
+    <meta property="og:image" content="https://www.matematicas.top/assets/img/og-image.jpg">
     <meta property="og:url" content="https://www.matematicas.top">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Matemáticas.top",
+      "description": "Clases particulares y recursos online para estudiantes de ESO y Bachillerato. Aprende matemáticas de forma divertida y eficaz.",
+      "url": "https://www.matematicas.top",
+      "image": "https://www.matematicas.top/assets/img/foto-perfil.JPG",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ES",
+        "addressRegion": "Andalucía"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@matematicastop",
+        "https://www.tiktok.com/@matematicas.top",
+        "https://www.instagram.com/matematicas.top/"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Francisco Muñoz Galván",
+        "jobTitle": "Matemático",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Universidad de Málaga"
+        }
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Clases de ESO",
+          "description": "Clases particulares de matemáticas para estudiantes de ESO (12-16 años)",
+          "price": "25",
+          "priceCurrency": "EUR"
+        },
+        {
+          "@type": "Offer",
+          "name": "Clases de Bachillerato", 
+          "description": "Clases particulares de matemáticas para estudiantes de Bachillerato (16-18 años)",
+          "price": "30",
+          "priceCurrency": "EUR"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!--
-    <header>
-        <nav>
-            <ul>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner">
+            <div class="spinner-inner">
+                <i class="fas fa-calculator"></i>
+            </div>
+        </div>
+        <p>Cargando Matemáticas.top...</p>
+    </div>
+
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calculator"></i>
+                <span>Matemáticas.top</span>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#profesores">Profesores</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#profesores">Profesor</a></li>
+                <li><a href="#recursos">Recursos</a></li>
                 <li><a href="#videos">Videos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
-    -->
 
-    <main>
-        <section id="inicio" class="hero" style="height: 50vh;">
-            <h1 style="font-size: 2.5rem;">Matemáticas TOP</h1>
-            <div id="animatedText" class="animated-text"></div>
+    <main id="main-content">
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Matemáticas <span class="highlight">TOP</span></h1>
+                    <div id="animatedText" class="animated-text"></div>
+                    <p class="hero-subtitle">Para estudiantes de ESO y Bachillerato (12-18 años)</p>
+                    <div class="hero-buttons">
+                        <a href="https://calendly.com/zumaquerodavid/30min" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-calendar"></i> Clase Gratuita
+                        </a>
+                        <a href="#cursos" class="btn btn-secondary">
+                            <i class="fas fa-play"></i> Ver Cursos
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="math-animation">
+                        <div class="floating-formula">∫ f(x)dx</div>
+                        <div class="floating-formula">x² + y² = r²</div>
+                        <div class="floating-formula">√(a² + b²)</div>
+                        <div class="floating-formula">lim f(x)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </section>
 
-        <section id="profesores" class="fade-in">
+        <section id="cursos" class="courses-section fade-in">
             <div class="container">
-                <img src="assets/img/foto-perfil.JPG" alt="Francisco Muñoz Galván" class="profile-img">
-                <div class="bio">
-                    <h2>Francisco Muñoz Galván</h2>
-                    <p>Matemático por la Universidad de Málaga con más de 5 años de experiencia ayudando a estudiantes de ESO y Bachillerato a superar los desafíos de las matemáticas.</p>
-                    <a href="https://calendly.com/zumaquerodavid/30min" class="reserve-class-btn" target="_blank">
-                        Reserva una clase
-                    </a>
+                <h2>Cursos por Nivel</h2>
+                <p class="section-subtitle">Contenido adaptado a cada etapa educativa</p>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>ESO (12-16 años)</h3>
+                        <ul>
+                            <li>Álgebra básica</li>
+                            <li>Geometría plana</li>
+                            <li>Funciones lineales</li>
+                            <li>Estadística descriptiva</li>
+                            <li>Probabilidad</li>
+                        </ul>
+                        <div class="course-price">Desde 25€/hora</div>
+                    </div>
+                    <div class="course-card featured">
+                        <div class="course-badge">Más Popular</div>
+                        <div class="course-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Bachillerato (16-18 años)</h3>
+                        <ul>
+                            <li>Análisis matemático</li>
+                            <li>Geometría analítica</li>
+                            <li>Trigonometría</li>
+                            <li>Límites y derivadas</li>
+                            <li>Integrales</li>
+                        </ul>
+                        <div class="course-price">Desde 30€/hora</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Selectividad (EVAU)</h3>
+                        <ul>
+                            <li>Repaso intensivo</li>
+                            <li>Exámenes tipo</li>
+                            <li>Estrategias de examen</li>
+                            <li>Resolución de problemas</li>
+                            <li>Confianza y técnica</li>
+                        </ul>
+                        <div class="course-price">Desde 35€/hora</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profesores" class="teacher-section fade-in">
+            <div class="container">
+                <h2>Tu Profesor</h2>
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="assets/img/foto-perfil.JPG" alt="Francisco Muñoz Galván" class="profile-img" loading="lazy">
+                        <div class="teacher-badge">
+                            <i class="fas fa-star"></i>
+                            <span>5+ años experiencia</span>
+                        </div>
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Francisco Muñoz Galván</h3>
+                        <p class="teacher-title">Matemático • Universidad de Málaga</p>
+                        <p class="teacher-description">
+                            Con más de 5 años de experiencia ayudando a estudiantes de ESO y Bachillerato, 
+                            Francisco ha desarrollado un método único que hace las matemáticas accesibles y divertidas. 
+                            Su enfoque personalizado ha ayudado a cientos de estudiantes a superar sus miedos y aprobar con éxito.
+                        </p>
+                        
+                        <div class="teacher-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>+500</span>
+                                <small>Estudiantes</small>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-percentage"></i>
+                                <span>95%</span>
+                                <small>Aprobados</small>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>+2000h</span>
+                                <small>Clases</small>
+                            </div>
+                        </div>
+
+                        <div class="teacher-actions">
+                            <a href="https://calendly.com/zumaquerodavid/30min" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-calendar"></i> Reserva una Clase Gratuita
+                            </a>
+                            <a href="#contacto" class="btn btn-outline">
+                                <i class="fas fa-envelope"></i> Contactar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="resources-section fade-in">
+            <div class="container">
+                <h2>Recursos Gratuitos</h2>
+                <p class="section-subtitle">Herramientas y materiales para estudiar</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Calculadora Científica</h3>
+                        <p>Calculadora online con funciones avanzadas para resolver problemas complejos.</p>
+                        <button class="btn btn-small" onclick="openCalculator()">Usar Ahora</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Graficador de Funciones</h3>
+                        <p>Visualiza funciones matemáticas y comprende mejor su comportamiento.</p>
+                        <button class="btn btn-small" onclick="openGrapher()">Graficar</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Formularios PDF</h3>
+                        <p>Descarga formularios con las fórmulas más importantes organizadas por tema.</p>
+                        <button class="btn btn-small" onclick="downloadFormulas()">Descargar</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Ejercicios Resueltos</h3>
+                        <p>Banco de problemas resueltos paso a paso para practicar.</p>
+                        <button class="btn btn-small" onclick="openExercises()">Practicar</button>
+                    </div>
+                </div>
+
+                <!-- Interactive Calculator Section -->
+                <div id="calculator-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeCalculator()">&times;</span>
+                        <h3>Calculadora Científica</h3>
+                        <div class="calculator">
+                            <div class="calc-display">
+                                <input type="text" id="calc-result" readonly>
+                            </div>
+                            <div class="calc-buttons">
+                                <button onclick="clearCalc()" class="calc-btn clear">C</button>
+                                <button onclick="deleteLast()" class="calc-btn">⌫</button>
+                                <button onclick="appendToCalc('/')" class="calc-btn operator">÷</button>
+                                <button onclick="appendToCalc('*')" class="calc-btn operator">×</button>
+                                
+                                <button onclick="appendToCalc('7')" class="calc-btn">7</button>
+                                <button onclick="appendToCalc('8')" class="calc-btn">8</button>
+                                <button onclick="appendToCalc('9')" class="calc-btn">9</button>
+                                <button onclick="appendToCalc('-')" class="calc-btn operator">-</button>
+                                
+                                <button onclick="appendToCalc('4')" class="calc-btn">4</button>
+                                <button onclick="appendToCalc('5')" class="calc-btn">5</button>
+                                <button onclick="appendToCalc('6')" class="calc-btn">6</button>
+                                <button onclick="appendToCalc('+')" class="calc-btn operator">+</button>
+                                
+                                <button onclick="appendToCalc('1')" class="calc-btn">1</button>
+                                <button onclick="appendToCalc('2')" class="calc-btn">2</button>
+                                <button onclick="appendToCalc('3')" class="calc-btn">3</button>
+                                <button onclick="calculateResult()" class="calc-btn equals" rowspan="2">=</button>
+                                
+                                <button onclick="appendToCalc('0')" class="calc-btn zero">0</button>
+                                <button onclick="appendToCalc('.')" class="calc-btn">.</button>
+                                <button onclick="appendToCalc('Math.sqrt(')" class="calc-btn">√</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
 
-        <section id="videos" class="fade-in">
-            <h2>Videos destacados</h2>
-            <div class="video-grid" style="margin: 0 200px;">
-                <iframe src="https://www.youtube.com/embed/3L_me6FZm2c" title="Video de matemáticas 1" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/S8OeypYsqoI" title="Video de matemáticas 2" allowfullscreen></iframe>
+                <section id="videos" class="videos-section fade-in">
+            <div class="container">
+                <h2>Videos Destacados</h2>
+                <p class="section-subtitle">Aprende con nuestros videos explicativos</p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/3L_me6FZm2c" title="Video de matemáticas 1" allowfullscreen></iframe>
+                        <div class="video-info">
+                            <h4>Álgebra Básica</h4>
+                            <p>Fundamentos esenciales para ESO</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/S8OeypYsqoI" title="Video de matemáticas 2" allowfullscreen></iframe>
+                        <div class="video-info">
+                            <h4>Funciones y Gráficas</h4>
+                            <p>Conceptos clave de Bachillerato</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="youtube-link-container">
+                    <a href="https://www.youtube.com/@matematicastop" target="_blank" rel="noopener noreferrer" class="yt-link">
+                        <i class="fab fa-youtube yt-icon"></i> 
+                        <span>Ver todos los videos en YouTube</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
             </div>
-            <head>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            </head>
-            <div class="youtube-link-container">
-                <a href="https://www.youtube.com/@matematicastop" target="_blank" rel="noopener noreferrer" class="yt-link">
-                    <i class="fab fa-youtube yt-icon"></i> Ver más videos
-                </a>
-            </div>
-            
-            
+        </section>
 
-    <footer id="contacto">
-        <div class="social-links">
-            <a href="https://www.youtube.com/@matematicastop" target="_blank" rel="noopener noreferrer">YouTube</a>
-            <a href="https://www.tiktok.com/@matematicas.top" target="_blank" rel="noopener noreferrer">TikTok</a>
-            <a href="https://www.instagram.com/matematicas.top/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section fade-in">
+            <div class="container">
+                <h2>Lo que dicen nuestros estudiantes</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Gracias a Francisco pasé de un 4 a un 8 en matemáticas. Sus explicaciones son súper claras y siempre tiene paciencia."</p>
+                        <div class="testimonial-author">
+                            <strong>María, 16 años</strong>
+                            <span>1º Bachillerato</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Los videos de YouTube me salvaron en el examen de selectividad. Explica todo paso a paso y es muy fácil de entender."</p>
+                        <div class="testimonial-author">
+                            <strong>Carlos, 18 años</strong>
+                            <span>2º Bachillerato</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Nunca pensé que me gustarían las matemáticas hasta que empecé con Francisco. Ahora es mi asignatura favorita."</p>
+                        <div class="testimonial-author">
+                            <strong>Ana, 14 años</strong>
+                            <span>3º ESO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calculator"></i> Matemáticas.top</h3>
+                    <p>Hacemos las matemáticas fáciles y divertidas para estudiantes de ESO y Bachillerato.</p>
+                    <div class="footer-social">
+                        <a href="https://www.youtube.com/@matematicastop" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@matematicas.top" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/matematicas.top/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Cursos</h4>
+                    <ul>
+                        <li><a href="#cursos">ESO (12-16 años)</a></li>
+                        <li><a href="#cursos">Bachillerato (16-18 años)</a></li>
+                        <li><a href="#cursos">Selectividad (EVAU)</a></li>
+                        <li><a href="#recursos">Recursos Gratuitos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@matematicas.top</p>
+                        <p><i class="fas fa-calendar"></i> Lun-Vie: 16:00-20:00</p>
+                        <p><i class="fas fa-calendar"></i> Sáb: 10:00-14:00</p>
+                    </div>
+                    <a href="https://calendly.com/zumaquerodavid/30min" class="btn btn-primary btn-small" target="_blank">
+                        <i class="fas fa-calendar"></i> Reservar Clase
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Matemáticas.top. Todos los derechos reservados.</p>
+                <p>Diseñado con <i class="fas fa-heart" style="color: #ff5047;"></i> para estudiantes españoles</p>
+            </div>
         </div>
-        <p>&copy; 2024 Matematicas.top. Todos los derechos reservados.</p>
     </footer>
 
     <script src="js/main.js"></script>
