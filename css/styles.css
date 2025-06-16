@@ -1078,7 +1078,209 @@ input:focus {
     transform: translateY(0);
 }
 
-/* Responsive Design */
+/* Notes Section */
+.notes-section {
+    background: var(--background-secondary);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.note-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.note-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.note-card.featured {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.note-card.coming-soon {
+    opacity: 0.7;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.note-card.coming-soon:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+.note-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--text-secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.note-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.note-card.coming-soon .note-icon {
+    background: linear-gradient(135deg, var(--text-light), var(--text-secondary));
+}
+
+.note-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.note-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.note-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.note-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.note-features li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.note-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.price-current {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.note-card .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.btn-disabled {
+    background: var(--text-light);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-disabled:hover {
+    background: var(--text-light);
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.complete-pack {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-xl);
+    padding: 3rem;
+    text-align: center;
+    color: white;
+}
+
+.pack-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.pack-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pack-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.pack-price .price-original {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pack-price .price-current {
+    font-size: 3rem;
+    color: white;
+}
+
+.discount {
+    background: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+/* Sections */
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
