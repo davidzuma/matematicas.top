@@ -166,6 +166,9 @@
                         <button class="btn btn-secondary" onclick="buyNotes('integrales')">
                             <i class="fas fa-shopping-cart"></i> Comprar Ahora
                         </button>
+                        <button class="btn btn-practice" onclick="startQuiz('integrales')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
+                        </button>
                     </div>
                     
                     <div class="note-card coming-soon">
@@ -187,6 +190,9 @@
                         </div>
                         <button class="btn btn-disabled" disabled>
                             <i class="fas fa-clock"></i> Próximamente
+                        </button>
+                        <button class="btn btn-practice" onclick="startQuiz('derivadas')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
                         </button>
                     </div>
                     
@@ -212,6 +218,9 @@
                         <button class="btn btn-secondary" onclick="buyNotes('limites')">
                             <i class="fas fa-shopping-cart"></i> Comprar
                         </button>
+                        <button class="btn btn-practice" onclick="startQuiz('limites')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
+                        </button>
                     </div>
                     
                     <div class="note-card coming-soon">
@@ -233,6 +242,9 @@
                         </div>
                         <button class="btn btn-disabled" disabled>
                             <i class="fas fa-clock"></i> Próximamente
+                        </button>
+                        <button class="btn btn-practice" onclick="startQuiz('funciones')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
                         </button>
                     </div>
                     
@@ -258,6 +270,9 @@
                         <button class="btn btn-secondary" onclick="buyNotes('geometria')">
                             <i class="fas fa-shopping-cart"></i> Comprar
                         </button>
+                        <button class="btn btn-practice" onclick="startQuiz('geometria')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
+                        </button>
                     </div>
                     
                     <div class="note-card">
@@ -282,6 +297,9 @@
                         <button class="btn btn-secondary" onclick="buyNotes('estadistica')">
                             <i class="fas fa-shopping-cart"></i> Comprar
                         </button>
+                        <button class="btn btn-practice" onclick="startQuiz('estadistica')">
+                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
+                        </button>
                     </div>
                 </div>
                 
@@ -298,6 +316,77 @@
                         <button class="btn btn-primary btn-large" onclick="buyNotes('pack-completo')">
                             <i class="fas fa-download"></i> Comprar Pack Completo
                         </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Modal -->
+                <div id="quiz-modal" class="modal">
+                    <div class="modal-content quiz-modal-content">
+                        <span class="close" onclick="closeQuiz()">&times;</span>
+                        <div id="quiz-container">
+                            <div class="quiz-header">
+                                <h3 id="quiz-title">Cuestionario de Práctica</h3>
+                                <div class="quiz-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="progress-fill"></div>
+                                    </div>
+                                    <span id="question-counter">1 / 5</span>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-content">
+                                <div class="question-section">
+                                    <h4 id="question-text">Pregunta aparecerá aquí</h4>
+                                    <div id="question-options" class="options-container">
+                                        <!-- Las opciones se generarán dinámicamente -->
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-actions">
+                                    <button id="prev-btn" class="btn btn-outline" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Anterior
+                                    </button>
+                                    <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" disabled>
+                                        Siguiente <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button id="finish-btn" class="btn btn-success" onclick="finishQuiz()" style="display: none;">
+                                        <i class="fas fa-check"></i> Finalizar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Resultados del quiz -->
+                            <div id="quiz-results" class="quiz-results" style="display: none;">
+                                <div class="results-header">
+                                    <i class="fas fa-trophy results-icon"></i>
+                                    <h3>¡Quiz Completado!</h3>
+                                </div>
+                                <div class="score-display">
+                                    <div class="score-circle">
+                                        <span id="score-percentage">0%</span>
+                                    </div>
+                                    <div class="grade-display">
+                                        <div class="grade-badge" id="grade-badge">
+                                            <span id="grade-letter">-</span>
+                                        </div>
+                                        <p class="grade-description" id="grade-description">Tu calificación</p>
+                                        <p class="numeric-grade" id="numeric-grade">0.0/10</p>
+                                    </div>
+                                    <p id="score-text">Has respondido correctamente <span id="correct-answers">0</span> de <span id="total-questions">5</span> preguntas</p>
+                                </div>
+                                <div class="results-message" id="results-message">
+                                    <!-- Mensaje personalizado según el resultado -->
+                                </div>
+                                <div class="results-actions">
+                                    <button class="btn btn-primary" onclick="restartQuiz()">
+                                        <i class="fas fa-redo"></i> Repetir Quiz
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="closeQuiz()">
+                                        <i class="fas fa-times"></i> Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,15 +451,6 @@
                 <div class="resources-grid">
                     <div class="resource-card">
                         <div class="resource-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3>Calculadora Científica</h3>
-                        <p>Calculadora online con funciones avanzadas para resolver problemas complejos.</p>
-                        <button class="btn btn-small" onclick="openCalculator()">Usar Ahora</button>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>Graficador de Funciones</h3>
@@ -394,44 +474,6 @@
                         <h3>Ejercicios Resueltos</h3>
                         <p>Banco de problemas resueltos paso a paso para practicar.</p>
                         <button class="btn btn-small" onclick="openExercises()">Practicar</button>
-                    </div>
-                </div>
-
-                <!-- Interactive Calculator Section -->
-                <div id="calculator-modal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeCalculator()">&times;</span>
-                        <h3>Calculadora Científica</h3>
-                        <div class="calculator">
-                            <div class="calc-display">
-                                <input type="text" id="calc-result" readonly>
-                            </div>
-                            <div class="calc-buttons">
-                                <button onclick="clearCalc()" class="calc-btn clear">C</button>
-                                <button onclick="deleteLast()" class="calc-btn">⌫</button>
-                                <button onclick="appendToCalc('/')" class="calc-btn operator">÷</button>
-                                <button onclick="appendToCalc('*')" class="calc-btn operator">×</button>
-                                
-                                <button onclick="appendToCalc('7')" class="calc-btn">7</button>
-                                <button onclick="appendToCalc('8')" class="calc-btn">8</button>
-                                <button onclick="appendToCalc('9')" class="calc-btn">9</button>
-                                <button onclick="appendToCalc('-')" class="calc-btn operator">-</button>
-                                
-                                <button onclick="appendToCalc('4')" class="calc-btn">4</button>
-                                <button onclick="appendToCalc('5')" class="calc-btn">5</button>
-                                <button onclick="appendToCalc('6')" class="calc-btn">6</button>
-                                <button onclick="appendToCalc('+')" class="calc-btn operator">+</button>
-                                
-                                <button onclick="appendToCalc('1')" class="calc-btn">1</button>
-                                <button onclick="appendToCalc('2')" class="calc-btn">2</button>
-                                <button onclick="appendToCalc('3')" class="calc-btn">3</button>
-                                <button onclick="calculateResult()" class="calc-btn equals" rowspan="2">=</button>
-                                
-                                <button onclick="appendToCalc('0')" class="calc-btn zero">0</button>
-                                <button onclick="appendToCalc('.')" class="calc-btn">.</button>
-                                <button onclick="appendToCalc('Math.sqrt(')" class="calc-btn">√</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
