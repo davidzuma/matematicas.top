@@ -1460,6 +1460,11 @@ input:focus {
     margin-bottom: 2rem;
 }
 
+/* Quiz Question Transitions */
+#question-text {
+    transition: opacity 0.3s ease;
+}
+
 .question-section {
     margin-bottom: 2rem;
 }
@@ -1488,6 +1493,47 @@ input:focus {
     transition: all 0.3s ease;
     text-align: left;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.option-btn.selected {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.02);
+}
+
+.option-btn.selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 0.6s ease-out;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 8px 35px rgba(255, 107, 107, 0.2); }
+    100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
 }
 
 .option-btn:hover {

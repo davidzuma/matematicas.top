@@ -272,6 +272,8 @@ const quizQuestions = {
 
 // Start quiz function
 function startQuiz(subject) {
+    console.log('Starting quiz for subject:', subject);
+    
     if (!quizQuestions[subject]) {
         alert('Cuestionario no disponible aún. ¡Próximamente!');
         return;
@@ -281,6 +283,9 @@ function startQuiz(subject) {
     currentQuestionIndex = 0;
     userAnswers = [];
     quizData = quizQuestions[subject];
+    
+    console.log('Quiz data loaded:', quizData);
+    console.log('Total questions:', quizData.questions.length);
     
     // Show modal
     document.getElementById('quiz-modal').style.display = 'block';
@@ -322,59 +327,39 @@ function loadQuestion() {
         
         optionsContainer.appendChild(optionBtn);
     });
-    
-    // Update navigation buttons
-    document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
-    document.getElementById('next-btn').disabled = true;
-    document.getElementById('next-btn').style.display = currentQuestionIndex === totalQuestions - 1 ? 'none' : 'inline-flex';
-    document.getElementById('finish-btn').style.display = currentQuestionIndex === totalQuestions - 1 ? 'inline-flex' : 'none';
-    
-    // Restore previous answer if exists
-    if (userAnswers[currentQuestionIndex] !== undefined) {
-        selectOption(userAnswers[currentQuestionIndex], false);
-    }
 }
 
 // Select option
-function selectOption(optionIndex, animate = true) {
-    // Remove previous selection
-    document.querySelectorAll('.option-btn').forEach(btn => {
+function selectOption(optionIndex) {
+    console.log('Selecting option:', optionIndex, 'for question:', currentQuestionIndex);
+    
+    // Store answer immediately
+    userAnswers[currentQuestionIndex] = optionIndex;
+    console.log('Stored answer. Current userAnswers:', [...userAnswers]);
+    
+    // Visual feedback
+    document.querySelectorAll('.option-btn').forEach((btn, idx) => {
+        btn.disabled = true;
         btn.classList.remove('selected');
+        if (idx === optionIndex) {
+            btn.classList.add('selected');
+        }
     });
     
-    // Select new option
-    const selectedBtn = document.querySelectorAll('.option-btn')[optionIndex];
-    selectedBtn.classList.add('selected');
+    // Check if quiz is complete
+    const isLastQuestion = currentQuestionIndex >= quizData.questions.length - 1;
+    console.log('Is last question?', isLastQuestion, 'Current index:', currentQuestionIndex, 'Total questions:', quizData.questions.length);
     
-    // Store answer
-    userAnswers[currentQuestionIndex] = optionIndex;
-    
-    // Enable next/finish button
-    document.getElementById('next-btn').disabled = false;
-    document.getElementById('finish-btn').disabled = false;
-    
-    // Add subtle animation
-    if (animate) {
-        selectedBtn.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            selectedBtn.style.transform = 'scale(1)';
-        }, 150);
-    }
-}
-
-// Navigation functions
-function nextQuestion() {
-    if (currentQuestionIndex < quizData.questions.length - 1) {
-        currentQuestionIndex++;
-        loadQuestion();
-    }
-}
-
-function previousQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        loadQuestion();
-    }
+    setTimeout(() => {
+        if (isLastQuestion) {
+            console.log('Finishing quiz with answers:', userAnswers);
+            finishQuiz();
+        } else {
+            currentQuestionIndex++;
+            console.log('Moving to next question:', currentQuestionIndex);
+            loadQuestion();
+        }
+    }, 800);
 }
 
 // Calculate grade based on percentage
@@ -414,23 +399,35 @@ function calculateGrade(percentage) {
 
 // Finish quiz
 function finishQuiz() {
+    console.log('finishQuiz called');
+    console.log('userAnswers:', userAnswers);
+    console.log('quizData.questions:', quizData.questions);
+    
     // Calculate score
     let correctAnswers = 0;
     quizData.questions.forEach((question, index) => {
+        console.log(`Question ${index}: user answer ${userAnswers[index]}, correct answer ${question.correct}`);
         if (userAnswers[index] === question.correct) {
             correctAnswers++;
         }
     });
     
+    console.log('Correct answers:', correctAnswers);
+    
     const totalQuestions = quizData.questions.length;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
     
+    console.log('Percentage:', percentage);
+    
     // Calculate grade
     const gradeInfo = calculateGrade(percentage);
+    console.log('Grade info:', gradeInfo);
     
     // Show results
     document.getElementById('quiz-container').style.display = 'none';
     document.getElementById('quiz-results').style.display = 'block';
+    
+    console.log('Results container shown');
     
     // Update score display
     document.getElementById('score-percentage').textContent = percentage + '%';
