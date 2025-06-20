@@ -345,31 +345,19 @@
                             
                             <!-- Resultados del quiz -->
                             <div id="quiz-results" class="quiz-results" style="display: none;">
-                                <div class="results-header">
-                                    <i class="fas fa-trophy results-icon"></i>
-                                    <h3>¡Quiz Completado!</h3>
+                                <div class="results-header" style="text-align: center; margin-bottom: 1rem;">
+                                    <i class="fas fa-trophy" style="font-size: 2rem; color: #f0c419;"></i>
+                                    <h3 style="margin: 0.5rem 0;">¡Quiz Completado!</h3>
                                 </div>
-                                <div class="score-display">
-                                    <div class="score-circle">
-                                        <span id="score-percentage">0%</span>
-                                    </div>
-                                    <div class="grade-display">
-                                        <div class="grade-badge" id="grade-badge">
-                                            <span id="grade-letter">-</span>
-                                        </div>
-                                        <p class="grade-description" id="grade-description">Tu calificación</p>
-                                        <p class="numeric-grade" id="numeric-grade">0.0/10</p>
-                                    </div>
-                                    <p id="score-text">Has respondido correctamente <span id="correct-answers">0</span> de <span id="total-questions">5</span> preguntas</p>
+                                <div class="results-body" style="text-align: center;">
+                                    <p id="score-percentage" style="font-size: 2.5rem; font-weight: bold; color: #4caf50; margin: 0.2rem 0;">0%</p>
+                                    <p style="margin: 0.5rem 0;">Respuestas correctas: <strong><span id="correct-answers">0</span></strong> / <strong><span id="total-questions">5</span></strong></p>
                                 </div>
-                                <div class="results-message" id="results-message">
-                                    <!-- Mensaje personalizado según el resultado -->
-                                </div>
-                                <div class="results-actions">
-                                    <button class="btn btn-primary" onclick="restartQuiz()">
-                                        <i class="fas fa-redo"></i> Repetir Quiz
+                                <div class="results-actions" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="restartQuiz()" style="padding: 0.5rem 1rem;">
+                                        <i class="fas fa-redo"></i> Repetir
                                     </button>
-                                    <button class="btn btn-secondary" onclick="closeQuiz()">
+                                    <button class="btn btn-secondary" onclick="closeQuiz()" style="padding: 0.5rem 1rem;">
                                         <i class="fas fa-times"></i> Cerrar
                                     </button>
                                 </div>

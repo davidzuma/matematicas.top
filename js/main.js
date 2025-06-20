@@ -424,7 +424,10 @@ function finishQuiz() {
     console.log('Grade info:', gradeInfo);
     
     // Show results
-    document.getElementById('quiz-container').style.display = 'none';
+    // Hide questions section only
+    document.querySelector('#quiz-container .quiz-header').style.display = 'none';
+    document.querySelector('#quiz-container .quiz-content').style.display = 'none';
+    // Display results
     document.getElementById('quiz-results').style.display = 'block';
     
     console.log('Results container shown');
@@ -442,7 +445,9 @@ function finishQuiz() {
     
     gradeLetter.textContent = gradeInfo.letter;
     gradeDescription.textContent = gradeInfo.description;
-    numericGrade.textContent = gradeInfo.numeric.toFixed(1) + '/10';
+    // Direct numeric grade as percentage divided by 10
+    const simpleNumeric = (percentage / 10).toFixed(1);
+    numericGrade.textContent = simpleNumeric + '/10';
     
     // Remove any existing grade classes
     gradeBadge.classList.remove('grade-a', 'grade-b', 'grade-c', 'grade-d', 'grade-f');
@@ -474,6 +479,9 @@ function finishQuiz() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     userAnswers = [];
+    // Restore questions section visibility
+    document.querySelector('#quiz-container .quiz-header').style.display = 'block';
+    document.querySelector('#quiz-container .quiz-content').style.display = 'block';
     document.getElementById('quiz-container').style.display = 'block';
     document.getElementById('quiz-results').style.display = 'none';
     loadQuestion();
