@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes de Probabilidad y Estadística - Matemáticas.top</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .notes-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 2rem;
+        }
+        
+        .notes-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .notes-nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-nav a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-left: 4px solid #f39c12;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .formula {
+            background: #fff;
+            border: 2px solid #fef9e7;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .example {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-button {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .quiz-button button {
+            background: white;
+            color: #f39c12;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-button button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calculator"></i>
+                <span>Matemáticas.top</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="notes-content">
+        <div class="notes-nav">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+        
+        <div class="notes-header">
+            <h1><i class="fas fa-percentage"></i> Apuntes de Probabilidad y Estadística</h1>
+            <p>Conceptos fundamentales de estadística y probabilidad</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Introducción a la Probabilidad</h2>
+            <p>La probabilidad es la medida de la posibilidad de que ocurra un evento aleatorio.</p>
+            
+            <h3>Definiciones Básicas</h3>
+            <ul>
+                <li><strong>Experimento aleatorio:</strong> Proceso cuyo resultado no se puede predecir con certeza</li>
+                <li><strong>Espacio muestral (Ω):</strong> Conjunto de todos los resultados posibles</li>
+                <li><strong>Evento o suceso:</strong> Subconjunto del espacio muestral</li>
+            </ul>
+            
+            <h3>Probabilidad de un Evento</h3>
+            <div class="formula">
+                P(A) = Casos favorables / Casos posibles
+            </div>
+            
+            <p><strong>Propiedades:</strong></p>
+            <ul>
+                <li>0 ≤ P(A) ≤ 1</li>
+                <li>P(Ω) = 1</li>
+                <li>P(∅) = 0</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>Al lanzar un dado, ¿cuál es la probabilidad de obtener un número par?</p>
+                <p>Casos favorables: {2, 4, 6} = 3</p>
+                <p>Casos posibles: {1, 2, 3, 4, 5, 6} = 6</p>
+                <p>P(par) = 3/6 = 1/2 = 0.5</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Operaciones con Eventos</h2>
+            
+            <h3>Unión de Eventos</h3>
+            <p>A ∪ B: Ocurre A o B (o ambos)</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+            </div>
+            
+            <h3>Intersección de Eventos</h3>
+            <p>A ∩ B: Ocurren A y B simultáneamente</p>
+            
+            <h3>Complemento de un Evento</h3>
+            <p>Aᶜ: No ocurre A</p>
+            <div class="formula">
+                P(Aᶜ) = 1 - P(A)
+            </div>
+            
+            <h3>Eventos Mutuamente Excluyentes</h3>
+            <p>Dos eventos A y B son mutuamente excluyentes si A ∩ B = ∅</p>
+            <div class="formula">
+                P(A ∪ B) = P(A) + P(B)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Probabilidad Condicional</h2>
+            <p>La probabilidad de que ocurra A dado que ha ocurrido B:</p>
+            
+            <div class="formula">
+                P(A|B) = P(A ∩ B) / P(B)
+            </div>
+            
+            <h3>Eventos Independientes</h3>
+            <p>Dos eventos A y B son independientes si:</p>
+            <div class="formula">
+                P(A ∩ B) = P(A) · P(B)
+            </div>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>En una urna hay 5 bolas rojas y 3 azules. Se extrae una bola sin reposición y luego otra.</p>
+                <p>P(2ª roja | 1ª roja) = 4/7</p>
+                <p>Porque quedan 4 rojas de 7 bolas totales.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Distribuciones de Probabilidad</h2>
+            
+            <h3>4.1 Distribución Binomial</h3>
+            <p>Para n ensayos independientes con probabilidad p de éxito:</p>
+            <div class="formula">
+                P(X = k) = C(n,k) · pᵏ · (1-p)ⁿ⁻ᵏ
+            </div>
+            
+            <p><strong>Media:</strong> μ = np</p>
+            <p><strong>Varianza:</strong> σ² = np(1-p)</p>
+            
+            <h3>4.2 Distribución Normal</h3>
+            <p>La distribución continua más importante, con función de densidad:</p>
+            <div class="formula">
+                f(x) = (1/σ√2π) · e^(-(x-μ)²/2σ²)
+            </div>
+            
+            <p><strong>Distribución Normal Estándar:</strong> μ = 0, σ = 1</p>
+            <div class="formula">
+                Z = (X - μ)/σ
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Estadística Descriptiva</h2>
+            
+            <h3>5.1 Medidas de Tendencia Central</h3>
+            
+            <p><strong>Media Aritmética:</strong></p>
+            <div class="formula">
+                x̄ = (Σxᵢ)/n
+            </div>
+            
+            <p><strong>Mediana:</strong> Valor central cuando los datos están ordenados</p>
+            <p><strong>Moda:</strong> Valor que más se repite</p>
+            
+            <h3>5.2 Medidas de Dispersión</h3>
+            
+            <p><strong>Rango:</strong> Diferencia entre el máximo y mínimo</p>
+            
+            <p><strong>Varianza:</strong></p>
+            <div class="formula">
+                s² = Σ(xᵢ - x̄)²/(n-1)
+            </div>
+            
+            <p><strong>Desviación Estándar:</strong></p>
+            <div class="formula">
+                s = √s²
+            </div>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>Datos: 2, 4, 6, 8, 10</p>
+                <p>Media: x̄ = (2+4+6+8+10)/5 = 6</p>
+                <p>Mediana: 6 (valor central)</p>
+                <p>Varianza: s² = [(2-6)² + (4-6)² + (6-6)² + (8-6)² + (10-6)²]/4 = 10</p>
+                <p>Desviación estándar: s = √10 ≈ 3.16</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. Correlación y Regresión</h2>
+            
+            <h3>6.1 Coeficiente de Correlación</h3>
+            <p>Mide la fuerza de la relación lineal entre dos variables:</p>
+            <div class="formula">
+                r = Σ(xᵢ - x̄)(yᵢ - ȳ) / √[Σ(xᵢ - x̄)² · Σ(yᵢ - ȳ)²]
+            </div>
+            
+            <p><strong>Interpretación:</strong></p>
+            <ul>
+                <li>r = 1: Correlación positiva perfecta</li>
+                <li>r = 0: No hay correlación lineal</li>
+                <li>r = -1: Correlación negativa perfecta</li>
+            </ul>
+            
+            <h3>6.2 Regresión Lineal</h3>
+            <p>La recta de regresión tiene la forma y = a + bx, donde:</p>
+            
+            <div class="formula">
+                b = Σ(xᵢ - x̄)(yᵢ - ȳ) / Σ(xᵢ - x̄)²
+            </div>
+            
+            <div class="formula">
+                a = ȳ - bx̄
+            </div>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>Si tenemos los puntos (1,2), (2,4), (3,5), (4,7), (5,8):</p>
+                <p>La recta de regresión sería aproximadamente y = 0.8 + 1.5x</p>
+                <p>Con coeficiente de correlación r ≈ 0.98 (correlación muy fuerte)</p>
+            </div>
+        </div>
+
+        <div class="quiz-button">
+            <h3>¿Listo para poner a prueba tus conocimientos?</h3>
+            <button onclick="window.open('../index.html#quiz-modal', '_self');">
+                <i class="fas fa-pencil-alt"></i> Hacer Cuestionario de Estadística
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calculator"></i> Matemáticas.top</h3>
+                    <p>Hacemos las matemáticas fáciles y divertidas para estudiantes de ESO y Bachillerato.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

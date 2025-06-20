@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes de Integrales - Matemáticas.top</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .notes-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 2rem;
+        }
+        
+        .notes-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .notes-nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-nav a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-left: 4px solid #4a90e2;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .formula {
+            background: #fff;
+            border: 2px solid #e3f2fd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .example {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-button {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .quiz-button button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-button button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calculator"></i>
+                <span>Matemáticas.top</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="notes-content">
+        <div class="notes-nav">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+        
+        <div class="notes-header">
+            <h1><i class="fas fa-integral"></i> Apuntes de Integrales</h1>
+            <p>Domina las integrales desde cero hasta nivel avanzado</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Introducción a las Integrales</h2>
+            <p>La integral es una operación matemática fundamental que nos permite calcular áreas bajo curvas, volúmenes, y resolver muchos problemas de la física y la ingeniería.</p>
+            
+            <h3>Definición</h3>
+            <p>Una integral representa la acumulación de cantidades infinitesimales. Existen dos tipos principales:</p>
+            <ul>
+                <li><strong>Integral indefinida:</strong> Representa una familia de funciones (antiderivada)</li>
+                <li><strong>Integral definida:</strong> Representa un valor numérico específico</li>
+            </ul>
+            
+            <div class="formula">
+                ∫ f(x) dx = F(x) + C
+            </div>
+            <p>Donde F'(x) = f(x) y C es la constante de integración.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Integrales Inmediatas</h2>
+            <p>Son las integrales básicas que debemos memorizar:</p>
+            
+            <div class="formula">
+                ∫ x^n dx = (x^(n+1))/(n+1) + C (n ≠ -1)
+            </div>
+            
+            <div class="formula">
+                ∫ 1/x dx = ln|x| + C
+            </div>
+            
+            <div class="formula">
+                ∫ e^x dx = e^x + C
+            </div>
+            
+            <div class="formula">
+                ∫ a^x dx = a^x/ln(a) + C
+            </div>
+            
+            <div class="formula">
+                ∫ sin(x) dx = -cos(x) + C
+            </div>
+            
+            <div class="formula">
+                ∫ cos(x) dx = sin(x) + C
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Métodos de Integración</h2>
+            
+            <h3>3.1 Integración por Sustitución</h3>
+            <p>Útil cuando tenemos una función compuesta:</p>
+            <div class="formula">
+                ∫ f(g(x)) · g'(x) dx = ∫ f(u) du
+            </div>
+            <p>Donde u = g(x) y du = g'(x) dx</p>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>∫ 2x · e^(x²) dx</p>
+                <p>Sea u = x², entonces du = 2x dx</p>
+                <p>∫ e^u du = e^u + C = e^(x²) + C</p>
+            </div>
+            
+            <h3>3.2 Integración por Partes</h3>
+            <p>Se aplica cuando tenemos el producto de dos funciones:</p>
+            <div class="formula">
+                ∫ u dv = uv - ∫ v du
+            </div>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>∫ x · e^x dx</p>
+                <p>u = x, dv = e^x dx</p>
+                <p>du = dx, v = e^x</p>
+                <p>= x·e^x - ∫ e^x dx = x·e^x - e^x + C = e^x(x-1) + C</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Integrales Definidas</h2>
+            <p>Una integral definida calcula el área neta entre la curva y el eje x en un intervalo [a,b]:</p>
+            
+            <div class="formula">
+                ∫[a,b] f(x) dx = F(b) - F(a)
+            </div>
+            
+            <h3>Teorema Fundamental del Cálculo</h3>
+            <p>Si f es continua en [a,b] y F es una antiderivada de f, entonces:</p>
+            <div class="formula">
+                ∫[a,b] f(x) dx = F(b) - F(a)
+            </div>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>∫[0,2] x² dx = [x³/3][0,2] = 8/3 - 0 = 8/3</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Aplicaciones de las Integrales</h2>
+            
+            <h3>5.1 Cálculo de Áreas</h3>
+            <p>El área entre una curva f(x) y el eje x en [a,b]:</p>
+            <div class="formula">
+                Área = ∫[a,b] |f(x)| dx
+            </div>
+            
+            <h3>5.2 Volúmenes de Revolución</h3>
+            <p>Volumen generado al rotar f(x) alrededor del eje x:</p>
+            <div class="formula">
+                V = π ∫[a,b] [f(x)]² dx
+            </div>
+            
+            <h3>5.3 Longitud de Arco</h3>
+            <p>Longitud de la curva y = f(x) desde x = a hasta x = b:</p>
+            <div class="formula">
+                L = ∫[a,b] √(1 + [f'(x)]²) dx
+            </div>
+        </div>
+
+        <div class="quiz-button">
+            <h3>¿Listo para poner a prueba tus conocimientos?</h3>
+            <button onclick="window.open('../index.html#quiz-modal', '_self');">
+                <i class="fas fa-pencil-alt"></i> Hacer Cuestionario de Integrales
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calculator"></i> Matemáticas.top</h3>
+                    <p>Hacemos las matemáticas fáciles y divertidas para estudiantes de ESO y Bachillerato.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

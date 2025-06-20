@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes de Límites - Matemáticas.top</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .notes-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 2rem;
+        }
+        
+        .notes-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .notes-nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .notes-nav a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-left: 4px solid #e74c3c;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .formula {
+            background: #fff;
+            border: 2px solid #ffebee;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .example {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-button {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .quiz-button button {
+            background: white;
+            color: #e74c3c;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-button button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calculator"></i>
+                <span>Matemáticas.top</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="notes-content">
+        <div class="notes-nav">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+        
+        <div class="notes-header">
+            <h1><i class="fas fa-square-root-alt"></i> Apuntes de Límites</h1>
+            <p>Comprende los límites de funciones paso a paso</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Concepto de Límite</h2>
+            <p>El límite de una función es el valor al que se aproxima la función cuando la variable independiente se acerca a un valor determinado.</p>
+            
+            <div class="formula">
+                lim[x→a] f(x) = L
+            </div>
+            <p>Se lee: "El límite de f(x) cuando x tiende a 'a' es igual a L"</p>
+            
+            <h3>Interpretación Geométrica</h3>
+            <p>El límite representa el valor al que se aproxima la función en un punto, aunque la función no esté definida en ese punto.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Límites Laterales</h2>
+            <p>Los límites laterales nos permiten estudiar el comportamiento de una función cuando nos acercamos a un punto desde la izquierda o desde la derecha.</p>
+            
+            <h3>Límite por la Izquierda</h3>
+            <div class="formula">
+                lim[x→a⁻] f(x) = L₁
+            </div>
+            
+            <h3>Límite por la Derecha</h3>
+            <div class="formula">
+                lim[x→a⁺] f(x) = L₂
+            </div>
+            
+            <p><strong>Teorema:</strong> El límite existe si y solo si ambos límites laterales existen y son iguales:</p>
+            <div class="formula">
+                lim[x→a] f(x) = L ⟺ lim[x→a⁻] f(x) = lim[x→a⁺] f(x) = L
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Límites al Infinito</h2>
+            <p>Estudian el comportamiento de las funciones cuando x crece indefinidamente.</p>
+            
+            <div class="formula">
+                lim[x→∞] f(x) = L
+            </div>
+            
+            <h3>Límites de Funciones Racionales</h3>
+            <p>Para P(x)/Q(x) donde P y Q son polinomios:</p>
+            <ul>
+                <li>Si grado P < grado Q: límite = 0</li>
+                <li>Si grado P = grado Q: límite = coeficiente líder de P / coeficiente líder de Q</li>
+                <li>Si grado P > grado Q: límite = ±∞</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>lim[x→∞] (3x² + 2x + 1)/(2x² - x + 5) = 3/2</p>
+                <p>Porque ambos polinomios tienen grado 2, y los coeficientes líderes son 3 y 2.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Indeterminaciones</h2>
+            <p>Son expresiones que no tienen un valor definido a primera vista y requieren técnicas especiales.</p>
+            
+            <h3>Tipos de Indeterminaciones</h3>
+            <ul>
+                <li>0/0</li>
+                <li>∞/∞</li>
+                <li>∞ - ∞</li>
+                <li>0 · ∞</li>
+                <li>1^∞</li>
+                <li>0^0</li>
+                <li>∞^0</li>
+            </ul>
+            
+            <h3>Técnicas de Resolución</h3>
+            <p><strong>1. Factorización:</strong> Para indeterminaciones 0/0</p>
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>lim[x→2] (x² - 4)/(x - 2) = lim[x→2] (x + 2)(x - 2)/(x - 2) = lim[x→2] (x + 2) = 4</p>
+            </div>
+            
+            <p><strong>2. Racionalización:</strong> Para funciones con radicales</p>
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>lim[x→0] (√(x + 1) - 1)/x</p>
+                <p>Multiplicando por (√(x + 1) + 1)/(√(x + 1) + 1):</p>
+                <p>= lim[x→0] (x + 1 - 1)/(x(√(x + 1) + 1)) = lim[x→0] 1/(√(x + 1) + 1) = 1/2</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Regla de L'Hôpital</h2>
+            <p>Es una herramienta poderosa para resolver indeterminaciones de tipo 0/0 y ∞/∞.</p>
+            
+            <div class="formula">
+                Si lim[x→a] f(x)/g(x) es 0/0 o ∞/∞, entonces:<br>
+                lim[x→a] f(x)/g(x) = lim[x→a] f'(x)/g'(x)
+            </div>
+            
+            <p><strong>Condiciones:</strong></p>
+            <ul>
+                <li>f(x) y g(x) deben ser derivables en un entorno de a</li>
+                <li>g'(x) ≠ 0 en dicho entorno</li>
+                <li>El límite de f'(x)/g'(x) debe existir</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Ejemplo:</h4>
+                <p>lim[x→0] sin(x)/x</p>
+                <p>Aplicando L'Hôpital: lim[x→0] cos(x)/1 = cos(0) = 1</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. Continuidad</h2>
+            <p>Una función es continua en un punto a si:</p>
+            <ol>
+                <li>f(a) está definida</li>
+                <li>lim[x→a] f(x) existe</li>
+                <li>lim[x→a] f(x) = f(a)</li>
+            </ol>
+            
+            <h3>Tipos de Discontinuidades</h3>
+            <ul>
+                <li><strong>Evitable:</strong> Cuando existe el límite pero f(a) no está definida o es distinta</li>
+                <li><strong>De salto:</strong> Cuando los límites laterales existen pero son distintos</li>
+                <li><strong>Esencial:</strong> Cuando al menos uno de los límites laterales no existe</li>
+            </ul>
+        </div>
+
+        <div class="quiz-button">
+            <h3>¿Listo para poner a prueba tus conocimientos?</h3>
+            <button onclick="window.open('../index.html#quiz-modal', '_self');">
+                <i class="fas fa-pencil-alt"></i> Hacer Cuestionario de Límites
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calculator"></i> Matemáticas.top</h3>
+                    <p>Hacemos las matemáticas fáciles y divertidas para estudiantes de ESO y Bachillerato.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
