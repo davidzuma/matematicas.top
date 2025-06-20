@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivadas - Matemáticas Top</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                Matemáticas.top
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#notes">Apuntes</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="notes-content">
+            <div class="container">
+                <div class="notes-header">
+                    <a href="../index.html" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Volver al inicio
+                    </a>
+                    <div class="notes-title">
+                        <div class="notes-icon">📈</div>
+                        <h1>Derivadas</h1>
+                        <p class="notes-subtitle">Domina el cálculo diferencial con conceptos claros y aplicaciones prácticas</p>
+                        <div class="quiz-button">
+                            <button onclick="openQuizModal()">
+                                <i class="fas fa-pencil-alt"></i> Hacer Cuestionario
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-body">
+                    <div class="notes-toc">
+                        <h3>Contenido</h3>
+                        <ul>
+                            <li><a href="#concepto">1. Concepto de Derivada</a></li>
+                            <li><a href="#interpretacion">2. Interpretación Geométrica</a></li>
+                            <li><a href="#reglas">3. Reglas de Derivación</a></li>
+                            <li><a href="#funciones">4. Derivadas de Funciones Elementales</a></li>
+                            <li><a href="#aplicaciones">5. Aplicaciones</a></li>
+                            <li><a href="#ejercicios">6. Ejercicios Resueltos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="notes-sections">
+                        <section id="concepto" class="notes-section">
+                            <h2>1. Concepto de Derivada</h2>
+                            <p>La derivada de una función representa la <strong>tasa de cambio instantánea</strong> de la función en un punto dado.</p>
+                            
+                            <div class="definition-box">
+                                <h4>Definición</h4>
+                                <p>La derivada de una función f(x) en un punto x₀ se define como:</p>
+                                <div class="formula">
+                                    f'(x₀) = lim[h→0] [f(x₀ + h) - f(x₀)] / h
+                                </div>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Notaciones</h4>
+                                <ul>
+                                    <li><strong>Leibniz:</strong> dy/dx, df/dx</li>
+                                    <li><strong>Lagrange:</strong> f'(x), y'</li>
+                                    <li><strong>Newton:</strong> ẏ, ḟ</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="interpretacion" class="notes-section">
+                            <h2>2. Interpretación Geométrica</h2>
+                            <p>Geométricamente, la derivada en un punto representa la <strong>pendiente de la recta tangente</strong> a la curva en ese punto.</p>
+                            
+                            <div class="example-box">
+                                <h4>Ejemplo Visual</h4>
+                                <p>Para la función f(x) = x²:</p>
+                                <ul>
+                                    <li>En x = 1: f'(1) = 2 → pendiente = 2</li>
+                                    <li>En x = 2: f'(2) = 4 → pendiente = 4</li>
+                                    <li>En x = -1: f'(-1) = -2 → pendiente = -2</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="reglas" class="notes-section">
+                            <h2>3. Reglas de Derivación</h2>
+                            
+                            <div class="rules-grid">
+                                <div class="rule-card">
+                                    <h4>Regla de la Constante</h4>
+                                    <div class="formula">d/dx[c] = 0</div>
+                                </div>
+                                
+                                <div class="rule-card">
+                                    <h4>Regla de la Potencia</h4>
+                                    <div class="formula">d/dx[x^n] = n·x^(n-1)</div>
+                                </div>
+                                
+                                <div class="rule-card">
+                                    <h4>Regla de la Suma</h4>
+                                    <div class="formula">d/dx[f + g] = f' + g'</div>
+                                </div>
+                                
+                                <div class="rule-card">
+                                    <h4>Regla del Producto</h4>
+                                    <div class="formula">d/dx[f·g] = f'·g + f·g'</div>
+                                </div>
+                                
+                                <div class="rule-card">
+                                    <h4>Regla del Cociente</h4>
+                                    <div class="formula">d/dx[f/g] = (f'·g - f·g')/g²</div>
+                                </div>
+                                
+                                <div class="rule-card">
+                                    <h4>Regla de la Cadena</h4>
+                                    <div class="formula">d/dx[f(g(x))] = f'(g(x))·g'(x)</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="funciones" class="notes-section">
+                            <h2>4. Derivadas de Funciones Elementales</h2>
+                            
+                            <div class="functions-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Función</th>
+                                            <th>Derivada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>c (constante)</td><td>0</td></tr>
+                                        <tr><td>x</td><td>1</td></tr>
+                                        <tr><td>x^n</td><td>n·x^(n-1)</td></tr>
+                                        <tr><td>e^x</td><td>e^x</td></tr>
+                                        <tr><td>ln(x)</td><td>1/x</td></tr>
+                                        <tr><td>sin(x)</td><td>cos(x)</td></tr>
+                                        <tr><td>cos(x)</td><td>-sin(x)</td></tr>
+                                        <tr><td>tan(x)</td><td>sec²(x)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="aplicaciones" class="notes-section">
+                            <h2>5. Aplicaciones de las Derivadas</h2>
+                            
+                            <div class="applications-grid">
+                                <div class="app-card">
+                                    <h4>🔍 Análisis de Funciones</h4>
+                                    <ul>
+                                        <li>Puntos críticos</li>
+                                        <li>Máximos y mínimos</li>
+                                        <li>Concavidad</li>
+                                        <li>Puntos de inflexión</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="app-card">
+                                    <h4>📈 Optimización</h4>
+                                    <ul>
+                                        <li>Problemas de máximos y mínimos</li>
+                                        <li>Optimización en economía</li>
+                                        <li>Diseño eficiente</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="app-card">
+                                    <h4>🚗 Cinemática</h4>
+                                    <ul>
+                                        <li>Velocidad instantánea</li>
+                                        <li>Aceleración</li>
+                                        <li>Movimiento rectilíneo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="ejercicios" class="notes-section">
+                            <h2>6. Ejercicios Resueltos</h2>
+                            
+                            <div class="exercise-box">
+                                <h4>Ejercicio 1</h4>
+                                <p><strong>Enunciado:</strong> Encuentra la derivada de f(x) = 3x⁴ - 2x² + 5x - 1</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong></p>
+                                    <p>f'(x) = d/dx[3x⁴] - d/dx[2x²] + d/dx[5x] - d/dx[1]</p>
+                                    <p>f'(x) = 3·4x³ - 2·2x + 5 - 0</p>
+                                    <p><strong>f'(x) = 12x³ - 4x + 5</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="exercise-box">
+                                <h4>Ejercicio 2</h4>
+                                <p><strong>Enunciado:</strong> Deriva f(x) = (2x + 1)(x² - 3)</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong> Usando la regla del producto</p>
+                                    <p>f'(x) = (2x + 1)'(x² - 3) + (2x + 1)(x² - 3)'</p>
+                                    <p>f'(x) = 2(x² - 3) + (2x + 1)(2x)</p>
+                                    <p>f'(x) = 2x² - 6 + 4x² + 2x</p>
+                                    <p><strong>f'(x) = 6x² + 2x - 6</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="exercise-box">
+                                <h4>Ejercicio 3</h4>
+                                <p><strong>Enunciado:</strong> Encuentra la derivada de f(x) = sin(2x + 1)</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong> Usando la regla de la cadena</p>
+                                    <p>f'(x) = cos(2x + 1) · d/dx[2x + 1]</p>
+                                    <p>f'(x) = cos(2x + 1) · 2</p>
+                                    <p><strong>f'(x) = 2cos(2x + 1)</strong></p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        Matemáticas.top
+                    </div>
+                    <p>Tu plataforma de confianza para dominar las matemáticas.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#notes">Apuntes</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Matemáticas.top. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal" style="display: none;">
+        <div class="modal-content quiz-modal-content">
+            <div class="quiz-header">
+                <h2><i class="fas fa-chart-line"></i> Cuestionario de Derivadas</h2>
+                <span class="close" onclick="closeQuizModal()">&times;</span>
+            </div>
+            <div class="quiz-content">
+                <div id="quiz-start" class="quiz-section">
+                    <p>Pon a prueba tus conocimientos sobre derivadas con este cuestionario.</p>
+                    <button onclick="startQuiz()" class="quiz-btn primary">Comenzar Cuestionario</button>
+                </div>
+                
+                <div id="quiz-question" class="quiz-section" style="display: none;">
+                    <div class="question-counter">
+                        <span id="current-question">1</span> de <span id="total-questions">10</span>
+                    </div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options" id="options"></div>
+                    <button onclick="nextQuestion()" id="next-btn" class="quiz-btn primary" style="display: none;">Siguiente</button>
+                </div>
+                
+                <div id="quiz-result" class="quiz-section" style="display: none;">
+                    <div class="result-icon" id="result-icon"></div>
+                    <h3 id="result-title"></h3>
+                    <p id="result-message"></p>
+                    <div class="score" id="score"></div>
+                    <button onclick="restartQuiz()" class="quiz-btn primary">Repetir Cuestionario</button>
+                    <button onclick="closeQuizModal()" class="quiz-btn secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Contenido</h4>
+                    <ul>
+                        <li><a href="integrales.html">Integrales</a></li>
+                        <li><a href="limites.html">Límites</a></li>
+                        <li><a href="geometria.html">Geometría Analítica</a></li>
+                        <li><a href="estadistica.html">Estadística</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Herramientas</h4>
+                    <ul>
+                        <li><a href="#calculadora">Calculadora Gráfica</a></li>
+                        <li><a href="#ejercicios">Ejercicios Interactivos</a></li>
+                        <li><a href="#notas">Notas y Apuntes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#ayuda">Centro de Ayuda</a></li>
+                        <li><a href="#tutoriales">Tutoriales</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Matemáticas.top. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Quiz Modal Styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .quiz-modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 5% auto;
+            padding: 0;
+            border: none;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .quiz-header {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .quiz-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .close:hover {
+            opacity: 1;
+        }
+
+        .quiz-content {
+            padding: 2rem;
+        }
+
+        .quiz-section {
+            text-align: center;
+        }
+
+        .question-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .option.selected {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+
+        .option.correct {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+        }
+
+        .option.incorrect {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #F44336;
+        }
+
+        .quiz-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .quiz-btn.primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .quiz-btn.primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .quiz-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .quiz-btn.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-modal-content {
+                width: 95%;
+                margin: 2% auto;
+                max-height: 90vh;
+            }
+            
+            .quiz-header {
+                padding: 1rem;
+            }
+            
+            .quiz-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const derivadasQuestions = [
+            {
+                question: "¿Qué representa geométricamente la derivada de una función en un punto?",
+                options: [
+                    "El área bajo la curva",
+                    "La pendiente de la recta tangente en ese punto",
+                    "La distancia al origen",
+                    "El valor máximo de la función"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la derivada de f(x) = x³?",
+                options: [
+                    "3x²",
+                    "x²",
+                    "3x",
+                    "x⁴/4"
+                ],
+                correct: 0
+            },
+            {
+                question: "Si f(x) = 5x² + 3x - 2, ¿cuál es f'(x)?",
+                options: [
+                    "10x + 3",
+                    "5x + 3",
+                    "10x² + 3x",
+                    "x² + x"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es la derivada de f(x) = sen(x)?",
+                options: [
+                    "sen(x)",
+                    "-cos(x)",
+                    "cos(x)",
+                    "-sen(x)"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es la derivada de f(x) = eˣ?",
+                options: [
+                    "eˣ⁻¹",
+                    "x·eˣ⁻¹",
+                    "eˣ",
+                    "1/eˣ"
+                ],
+                correct: 2
+            },
+            {
+                question: "Para aplicar la regla de la cadena en f(g(x)), la derivada es:",
+                options: [
+                    "f'(x) · g'(x)",
+                    "f'(g(x)) · g'(x)",
+                    "f(x) · g'(x)",
+                    "f'(x) + g'(x)"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la derivada de f(x) = ln(x)?",
+                options: [
+                    "1/x",
+                    "x",
+                    "ln(x)",
+                    "1/ln(x)"
+                ],
+                correct: 0
+            },
+            {
+                question: "Si f(x) = x · sen(x), usando la regla del producto, f'(x) es:",
+                options: [
+                    "sen(x) + cos(x)",
+                    "x · cos(x)",
+                    "sen(x) + x · cos(x)",
+                    "x · sen(x) · cos(x)"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿En qué puntos una función tiene máximos o mínimos locales?",
+                options: [
+                    "Donde f(x) = 0",
+                    "Donde f'(x) = 0 o f'(x) no existe",
+                    "Donde f''(x) = 0",
+                    "En los extremos del dominio"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué nos dice la segunda derivada sobre la concavidad?",
+                options: [
+                    "f''(x) > 0: cóncava hacia abajo, f''(x) < 0: cóncava hacia arriba",
+                    "f''(x) > 0: cóncava hacia arriba, f''(x) < 0: cóncava hacia abajo",
+                    "No nos dice nada sobre la concavidad",
+                    "Solo nos dice si hay puntos de inflexión"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+
+        function openQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            restartQuiz();
+        }
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'block';
+            document.getElementById('total-questions').textContent = derivadasQuestions.length;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = derivadasQuestions[currentQuestionIndex];
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            selectedAnswer = null;
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index, optionElement);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        function selectAnswer(answerIndex, optionElement) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = answerIndex;
+            const question = derivadasQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (answerIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                document.getElementById('next-btn').style.display = 'block';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < derivadasQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+            
+            const percentage = Math.round((score / derivadasQuestions.length) * 100);
+            
+            const resultIcon = document.getElementById('result-icon');
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            
+            if (percentage >= 80) {
+                resultIcon.innerHTML = '🏆';
+                resultTitle.textContent = '¡Excelente!';
+                resultMessage.textContent = 'Dominas muy bien el cálculo de derivadas.';
+            } else if (percentage >= 60) {
+                resultIcon.innerHTML = '👍';
+                resultTitle.textContent = '¡Bien!';
+                resultMessage.textContent = 'Tienes un buen conocimiento, pero puedes mejorar con más práctica.';
+            } else {
+                resultIcon.innerHTML = '📚';
+                resultTitle.textContent = 'Sigue practicando';
+                resultMessage.textContent = 'Te recomendamos repasar las reglas de derivación y volver a intentarlo.';
+            }
+            
+            document.getElementById('score').innerHTML = `${score}/${derivadasQuestions.length}<br><span style="font-size: 1.2rem;">${percentage}%</span>`;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+
+        // También actualizar el botón del header
+        document.querySelector('.notes-header .quiz-button button').onclick = openQuizModal;
+    </script>
+</body>
+</html>

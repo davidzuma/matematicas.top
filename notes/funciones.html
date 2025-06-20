@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones - Matemáticas Top</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                Matemáticas.top
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#notes">Apuntes</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="notes-content">
+            <div class="container">
+                <div class="notes-header">
+                    <a href="../index.html" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Volver al inicio
+                    </a>
+                    <div class="notes-title">
+                        <div class="notes-icon">𝑓</div>
+                        <h1>Funciones</h1>
+                        <p class="notes-subtitle">Explora el fascinante mundo de las funciones y sus propiedades</p>
+                        <div class="quiz-button">
+                            <button onclick="openQuizModal()">
+                                <i class="fas fa-pencil-alt"></i> Hacer Cuestionario
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-body">
+                    <div class="notes-toc">
+                        <h3>Contenido</h3>
+                        <ul>
+                            <li><a href="#concepto">1. Concepto de Función</a></li>
+                            <li><a href="#dominio">2. Dominio y Recorrido</a></li>
+                            <li><a href="#tipos">3. Tipos de Funciones</a></li>
+                            <li><a href="#operaciones">4. Operaciones con Funciones</a></li>
+                            <li><a href="#composicion">5. Composición de Funciones</a></li>
+                            <li><a href="#inversa">6. Función Inversa</a></li>
+                            <li><a href="#ejercicios">7. Ejercicios Resueltos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="notes-sections">
+                        <section id="concepto" class="notes-section">
+                            <h2>1. Concepto de Función</h2>
+                            <p>Una función es una <strong>relación</strong> entre dos conjuntos donde cada elemento del conjunto de partida se relaciona con exactamente un elemento del conjunto de llegada.</p>
+                            
+                            <div class="definition-box">
+                                <h4>Definición</h4>
+                                <p>Una función f de A en B es una regla que asigna a cada elemento x ∈ A exactamente un elemento y ∈ B.</p>
+                                <div class="formula">
+                                    f: A → B<br>
+                                    x ↦ f(x) = y
+                                </div>
+                                <p>Donde:</p>
+                                <ul>
+                                    <li><strong>A</strong> = Dominio</li>
+                                    <li><strong>B</strong> = Codominio</li>
+                                    <li><strong>x</strong> = Variable independiente</li>
+                                    <li><strong>y</strong> = Variable dependiente</li>
+                                </ul>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Condición de Función</h4>
+                                <p>Para que una relación sea función, debe cumplir que <strong>cada valor de x tiene un único valor de y</strong>.</p>
+                                <p><strong>Prueba de la línea vertical:</strong> Una gráfica representa una función si cualquier línea vertical la corta en máximo un punto.</p>
+                            </div>
+                        </section>
+
+                        <section id="dominio" class="notes-section">
+                            <h2>2. Dominio y Recorrido</h2>
+                            
+                            <div class="concept-box">
+                                <h4>Dominio (Dom f)</h4>
+                                <p>Es el conjunto de todos los valores de x para los cuales la función está definida.</p>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Recorrido o Rango (Rec f)</h4>
+                                <p>Es el conjunto de todos los valores de y que puede tomar la función.</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Ejemplos de Dominios</h4>
+                                <ul>
+                                    <li><strong>f(x) = x²:</strong> Dom f = ℝ (todos los reales)</li>
+                                    <li><strong>f(x) = 1/x:</strong> Dom f = ℝ - {0} (todos los reales excepto cero)</li>
+                                    <li><strong>f(x) = √x:</strong> Dom f = [0, +∞) (números no negativos)</li>
+                                    <li><strong>f(x) = ln(x):</strong> Dom f = (0, +∞) (números positivos)</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="tipos" class="notes-section">
+                            <h2>3. Tipos de Funciones</h2>
+                            
+                            <div class="types-grid">
+                                <div class="type-card">
+                                    <h4>Función Lineal</h4>
+                                    <div class="formula">f(x) = mx + b</div>
+                                    <p>Gráfica: Línea recta</p>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <h4>Función Cuadrática</h4>
+                                    <div class="formula">f(x) = ax² + bx + c</div>
+                                    <p>Gráfica: Parábola</p>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <h4>Función Exponencial</h4>
+                                    <div class="formula">f(x) = aˣ</div>
+                                    <p>Base a > 0, a ≠ 1</p>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <h4>Función Logarítmica</h4>
+                                    <div class="formula">f(x) = log_a(x)</div>
+                                    <p>Inversa de la exponencial</p>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <h4>Función Trigonométrica</h4>
+                                    <div class="formula">sin(x), cos(x), tan(x)</div>
+                                    <p>Funciones periódicas</p>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <h4>Función Racional</h4>
+                                    <div class="formula">f(x) = P(x)/Q(x)</div>
+                                    <p>Cociente de polinomios</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="operaciones" class="notes-section">
+                            <h2>4. Operaciones con Funciones</h2>
+                            
+                            <div class="operations-grid">
+                                <div class="operation-card">
+                                    <h4>Suma</h4>
+                                    <div class="formula">(f + g)(x) = f(x) + g(x)</div>
+                                </div>
+                                
+                                <div class="operation-card">
+                                    <h4>Resta</h4>
+                                    <div class="formula">(f - g)(x) = f(x) - g(x)</div>
+                                </div>
+                                
+                                <div class="operation-card">
+                                    <h4>Producto</h4>
+                                    <div class="formula">(f · g)(x) = f(x) · g(x)</div>
+                                </div>
+                                
+                                <div class="operation-card">
+                                    <h4>Cociente</h4>
+                                    <div class="formula">(f / g)(x) = f(x) / g(x)</div>
+                                    <p>donde g(x) ≠ 0</p>
+                                </div>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Dominio de Operaciones</h4>
+                                <p>El dominio de f ± g, f · g es Dom f ∩ Dom g</p>
+                                <p>El dominio de f / g es Dom f ∩ Dom g ∩ {x: g(x) ≠ 0}</p>
+                            </div>
+                        </section>
+
+                        <section id="composicion" class="notes-section">
+                            <h2>5. Composición de Funciones</h2>
+                            
+                            <div class="definition-box">
+                                <h4>Definición</h4>
+                                <p>La composición de f con g se denota (f ∘ g)(x) = f(g(x))</p>
+                                <p>Se lee "f compuesta con g de x"</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Ejemplo</h4>
+                                <p>Sean f(x) = x² y g(x) = x + 1</p>
+                                <ul>
+                                    <li>(f ∘ g)(x) = f(g(x)) = f(x + 1) = (x + 1)²</li>
+                                    <li>(g ∘ f)(x) = g(f(x)) = g(x²) = x² + 1</li>
+                                </ul>
+                                <p><strong>Nota:</strong> En general, f ∘ g ≠ g ∘ f</p>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Dominio de la Composición</h4>
+                                <p>Dom(f ∘ g) = {x ∈ Dom g : g(x) ∈ Dom f}</p>
+                            </div>
+                        </section>
+
+                        <section id="inversa" class="notes-section">
+                            <h2>6. Función Inversa</h2>
+                            
+                            <div class="definition-box">
+                                <h4>Definición</h4>
+                                <p>La función inversa f⁻¹ de f satisface:</p>
+                                <div class="formula">
+                                    f⁻¹(f(x)) = x para todo x ∈ Dom f<br>
+                                    f(f⁻¹(y)) = y para todo y ∈ Rec f
+                                </div>
+                            </div>
+
+                            <div class="concept-box">
+                                <h4>Condición de Existencia</h4>
+                                <p>Una función tiene inversa si y solo si es <strong>biyectiva</strong> (inyectiva y sobreyectiva).</p>
+                                <p><strong>Prueba de la línea horizontal:</strong> Una función es inyectiva si cualquier línea horizontal la corta en máximo un punto.</p>
+                            </div>
+
+                            <div class="example-box">
+                                <h4>Cómo Encontrar la Inversa</h4>
+                                <ol>
+                                    <li>Escribir y = f(x)</li>
+                                    <li>Intercambiar x e y</li>
+                                    <li>Despejar y en términos de x</li>
+                                    <li>La expresión resultante es f⁻¹(x)</li>
+                                </ol>
+                                
+                                <p><strong>Ejemplo:</strong> f(x) = 2x + 3</p>
+                                <ol>
+                                    <li>y = 2x + 3</li>
+                                    <li>x = 2y + 3</li>
+                                    <li>y = (x - 3)/2</li>
+                                    <li>f⁻¹(x) = (x - 3)/2</li>
+                                </ol>
+                            </div>
+                        </section>
+
+                        <section id="ejercicios" class="notes-section">
+                            <h2>7. Ejercicios Resueltos</h2>
+                            
+                            <div class="exercise-box">
+                                <h4>Ejercicio 1</h4>
+                                <p><strong>Enunciado:</strong> Encuentra el dominio de f(x) = √(x - 2)/(x + 1)</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong></p>
+                                    <p>Para que la función esté definida:</p>
+                                    <ol>
+                                        <li>x - 2 ≥ 0 → x ≥ 2 (para la raíz cuadrada)</li>
+                                        <li>x + 1 ≠ 0 → x ≠ -1 (denominador no nulo)</li>
+                                    </ol>
+                                    <p><strong>Dom f = [2, +∞)</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="exercise-box">
+                                <h4>Ejercicio 2</h4>
+                                <p><strong>Enunciado:</strong> Sean f(x) = x² - 1 y g(x) = 2x + 3. Encuentra (f ∘ g)(x)</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong></p>
+                                    <p>(f ∘ g)(x) = f(g(x)) = f(2x + 3)</p>
+                                    <p>= (2x + 3)² - 1</p>
+                                    <p>= 4x² + 12x + 9 - 1</p>
+                                    <p><strong>(f ∘ g)(x) = 4x² + 12x + 8</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="exercise-box">
+                                <h4>Ejercicio 3</h4>
+                                <p><strong>Enunciado:</strong> Encuentra la inversa de f(x) = (3x - 1)/2</p>
+                                <div class="solution">
+                                    <p><strong>Solución:</strong></p>
+                                    <ol>
+                                        <li>y = (3x - 1)/2</li>
+                                        <li>x = (3y - 1)/2</li>
+                                        <li>2x = 3y - 1</li>
+                                        <li>3y = 2x + 1</li>
+                                        <li>y = (2x + 1)/3</li>
+                                    </ol>
+                                    <p><strong>f⁻¹(x) = (2x + 1)/3</strong></p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal" style="display: none;">
+        <div class="modal-content quiz-modal-content">
+            <div class="quiz-header">
+                <h2><i class="fas fa-functions"></i> Cuestionario de Funciones</h2>
+                <span class="close" onclick="closeQuizModal()">&times;</span>
+            </div>
+            <div class="quiz-content">
+                <div id="quiz-start" class="quiz-section">
+                    <p>Pon a prueba tus conocimientos sobre funciones con este cuestionario.</p>
+                    <button onclick="startQuiz()" class="quiz-btn primary">Comenzar Cuestionario</button>
+                </div>
+                
+                <div id="quiz-question" class="quiz-section" style="display: none;">
+                    <div class="question-counter">
+                        <span id="current-question">1</span> de <span id="total-questions">10</span>
+                    </div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options" id="options"></div>
+                    <button onclick="nextQuestion()" id="next-btn" class="quiz-btn primary" style="display: none;">Siguiente</button>
+                </div>
+                
+                <div id="quiz-result" class="quiz-section" style="display: none;">
+                    <div class="result-icon" id="result-icon"></div>
+                    <h3 id="result-title"></h3>
+                    <p id="result-message"></p>
+                    <div class="score" id="score"></div>
+                    <button onclick="restartQuiz()" class="quiz-btn primary">Repetir Cuestionario</button>
+                    <button onclick="closeQuizModal()" class="quiz-btn secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        Matemáticas.top
+                    </div>
+                    <p>Tu plataforma de confianza para dominar las matemáticas.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#notes">Apuntes</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Matemáticas.top. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Quiz Modal Styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .quiz-modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 5% auto;
+            padding: 0;
+            border: none;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .quiz-header {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .quiz-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .close:hover {
+            opacity: 1;
+        }
+
+        .quiz-content {
+            padding: 2rem;
+        }
+
+        .quiz-section {
+            text-align: center;
+        }
+
+        .question-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .option.selected {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+
+        .option.correct {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+        }
+
+        .option.incorrect {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #F44336;
+        }
+
+        .quiz-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .quiz-btn.primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .quiz-btn.primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .quiz-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .quiz-btn.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+
+        .quiz-button {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .quiz-button button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .quiz-button button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .quiz-modal-content {
+                width: 95%;
+                margin: 2% auto;
+                max-height: 90vh;
+            }
+            
+            .quiz-header {
+                padding: 1rem;
+            }
+            
+            .quiz-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const funcionesQuestions = [
+            {
+                question: "¿Qué es una función matemática?",
+                options: [
+                    "Una relación entre dos conjuntos donde cada elemento del primer conjunto se asocia con exactamente un elemento del segundo",
+                    "Una ecuación con dos variables",
+                    "Un gráfico en el plano cartesiano",
+                    "Una operación matemática"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es el dominio de la función f(x) = 1/(x-2)?",
+                options: [
+                    "Todos los números reales",
+                    "Todos los números reales excepto x = 2",
+                    "Todos los números reales excepto x = 0",
+                    "Solo números positivos"
+                ],
+                correct: 1
+            },
+            {
+                question: "Una función es par si:",
+                options: [
+                    "f(-x) = -f(x)",
+                    "f(-x) = f(x)",
+                    "f(x) = f(x+1)",
+                    "f(x) > 0 para todo x"
+                ],
+                correct: 1
+            },
+            {
+                question: "Una función es impar si:",
+                options: [
+                    "f(-x) = f(x)",
+                    "f(-x) = -f(x)",
+                    "f(x) < 0 para todo x",
+                    "f(x) = x²"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el rango de la función f(x) = x²?",
+                options: [
+                    "Todos los números reales",
+                    "Todos los números reales no negativos",
+                    "Todos los números reales no positivos",
+                    "Solo números enteros"
+                ],
+                correct: 1
+            },
+            {
+                question: "La función f(x) = |x| es:",
+                options: [
+                    "Par",
+                    "Impar",
+                    "Ni par ni impar",
+                    "Periódica"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es la función inversa de f(x) = 2x + 3?",
+                options: [
+                    "f⁻¹(x) = x/2 - 3",
+                    "f⁻¹(x) = (x - 3)/2",
+                    "f⁻¹(x) = 2x - 3",
+                    "f⁻¹(x) = (x + 3)/2"
+                ],
+                correct: 1
+            },
+            {
+                question: "Una función es inyectiva (uno a uno) si:",
+                options: [
+                    "Cada elemento del dominio tiene una imagen",
+                    "Cada elemento del codominio tiene al menos una preimagen",
+                    "Elementos diferentes del dominio tienen imágenes diferentes",
+                    "El dominio y el codominio son iguales"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el período de la función f(x) = sen(x)?",
+                options: [
+                    "π",
+                    "2π",
+                    "π/2",
+                    "4π"
+                ],
+                correct: 1
+            },
+            {
+                question: "Si f(x) = x² y g(x) = x + 1, ¿cuál es (f ∘ g)(x)?",
+                options: [
+                    "x² + 1",
+                    "(x + 1)²",
+                    "x² + x + 1",
+                    "x³ + x²"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+
+        function openQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            restartQuiz();
+        }
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'block';
+            document.getElementById('total-questions').textContent = funcionesQuestions.length;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = funcionesQuestions[currentQuestionIndex];
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            selectedAnswer = null;
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index, optionElement);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        function selectAnswer(answerIndex, optionElement) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = answerIndex;
+            const question = funcionesQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (answerIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                document.getElementById('next-btn').style.display = 'block';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < funcionesQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+            
+            const percentage = Math.round((score / funcionesQuestions.length) * 100);
+            
+            const resultIcon = document.getElementById('result-icon');
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            
+            if (percentage >= 80) {
+                resultIcon.innerHTML = '🏆';
+                resultTitle.textContent = '¡Excelente!';
+                resultMessage.textContent = 'Dominas muy bien el concepto de funciones.';
+            } else if (percentage >= 60) {
+                resultIcon.innerHTML = '👍';
+                resultTitle.textContent = '¡Bien!';
+                resultMessage.textContent = 'Tienes un buen conocimiento, pero puedes mejorar con más estudio.';
+            } else {
+                resultIcon.innerHTML = '📚';
+                resultTitle.textContent = 'Sigue practicando';
+                resultMessage.textContent = 'Te recomendamos repasar los conceptos de funciones y volver a intentarlo.';
+            }
+            
+            document.getElementById('score').innerHTML = `${score}/${funcionesQuestions.length}<br><span style="font-size: 1.2rem;">${percentage}%</span>`;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+
+        // También actualizar el botón del header
+        document.querySelector('.notes-header .quiz-button button').onclick = openQuizModal;
+    </script>
+</body>
+</html>

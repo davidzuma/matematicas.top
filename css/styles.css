@@ -349,6 +349,33 @@ h1, h2, h3, h4, h5, h6 {
     background: #059669;
 }
 
+/* Note Actions - Layout for grouped buttons */
+.note-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.note-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .note-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .note-actions .btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
 /* Sections */
 section {
     padding: 5rem 0;

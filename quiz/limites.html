@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Límites - Matemáticas Top</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                Matemáticas.top
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#notes">Apuntes</a></li>
+                <li><a href="../notes/limites.html">Teoría</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="quiz-section">
+            <div class="container">
+                <div class="quiz-header">
+                    <a href="../index.html" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Volver al inicio
+                    </a>
+                    <div class="quiz-title">
+                        <div class="quiz-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h1>Quiz de Límites</h1>
+                        <p class="quiz-subtitle">Evalúa tu comprensión de los límites de funciones</p>
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressBar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content" id="quizContent">
+                        <div class="question-card">
+                            <h3 id="questionText">Cargando pregunta...</h3>
+                            <div class="options" id="optionsContainer">
+                                <!-- Las opciones se generarán dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                            <i class="fas fa-chevron-left"></i> Anterior
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                            Siguiente <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button class="btn btn-success" id="finishBtn" onclick="finishQuiz()" style="display: none;">
+                            <i class="fas fa-check"></i> Finalizar Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quiz-results" id="quizResults" style="display: none;">
+                    <div class="results-card">
+                        <div class="results-header">
+                            <div class="results-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h2>¡Quiz Completado!</h2>
+                        </div>
+                        <div class="results-content">
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="scorePercentage">0%</span>
+                                </div>
+                                <p>Tu puntuación: <span id="scoreText">0/10</span></p>
+                            </div>
+                            <div class="results-message" id="resultsMessage"></div>
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn btn-primary" onclick="restartQuiz()">
+                                <i class="fas fa-redo"></i> Intentar de nuevo
+                            </button>
+                            <a href="../notes/limites.html" class="btn btn-secondary">
+                                <i class="fas fa-book"></i> Revisar teoría
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        Matemáticas.top
+                    </div>
+                    <p>Tu plataforma de confianza para dominar las matemáticas.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#notes">Apuntes</a></li>
+                        <li><a href="../notes/limites.html">Teoría</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Matemáticas.top. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz de Límites
+        const questions = [
+            {
+                question: "¿Cuál es el límite de (x² - 1)/(x - 1) cuando x tiende a 1?",
+                options: ["0", "1", "2", "No existe"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el límite de x cuando x tiende a 3?",
+                options: ["0", "3", "∞", "No existe"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de sin(x)/x cuando x tiende a 0?",
+                options: ["0", "1", "∞", "No existe"],
+                correct: 1
+            },
+            {
+                question: "Si lim f(x) = 5 y lim g(x) = 3, ¿cuál es lim [f(x) + g(x)]?",
+                options: ["2", "8", "15", "No se puede determinar"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de 1/x cuando x tiende a 0 por la derecha?",
+                options: ["0", "1", "+∞", "-∞"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el límite de (x² + 2x + 1)/(x + 1) cuando x tiende a -1?",
+                options: ["0", "1", "2", "No existe"],
+                correct: 0
+            },
+            {
+                question: "¿Cuál es el límite de x² cuando x tiende a infinito?",
+                options: ["0", "1", "∞", "No existe"],
+                correct: 2
+            },
+            {
+                question: "Para que exista el límite en un punto, los límites laterales deben ser:",
+                options: ["Diferentes", "Iguales", "Positivos", "Negativos"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de cos(x) cuando x tiende a 0?",
+                options: ["0", "1", "-1", "No existe"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de (3x + 2)/(x - 1) cuando x tiende a infinito?",
+                options: ["0", "2", "3", "∞"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        function initQuiz() {
+            document.getElementById('totalQuestions').textContent = questions.length;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.innerHTML = `
+                    <input type="radio" id="option${index}" name="answer" value="${index}">
+                    <label for="option${index}">${option}</label>
+                `;
+                optionsContainer.appendChild(optionElement);
+            });
+
+            // Restaurar respuesta anterior si existe
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                const selectedOption = document.querySelector(`input[value="${userAnswers[currentQuestionIndex]}"]`);
+                if (selectedOption) selectedOption.checked = true;
+            }
+
+            updateProgress();
+            updateNavigationButtons();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const finishBtn = document.getElementById('finishBtn');
+
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                finishBtn.style.display = 'inline-flex';
+            } else {
+                nextBtn.style.display = 'inline-flex';
+                finishBtn.style.display = 'none';
+            }
+
+            // Habilitar siguiente/finalizar solo si hay respuesta seleccionada
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            nextBtn.disabled = !selectedAnswer;
+            finishBtn.disabled = !selectedAnswer;
+        }
+
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            }
+        }
+
+        function previousQuestion() {
+            saveAnswer();
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        }
+
+        function saveAnswer() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                userAnswers[currentQuestionIndex] = parseInt(selectedAnswer.value);
+            }
+        }
+
+        function finishQuiz() {
+            saveAnswer();
+            calculateScore();
+            showResults();
+        }
+
+        function calculateScore() {
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].correct) {
+                    score++;
+                }
+            });
+        }
+
+        function showResults() {
+            document.getElementById('quizContent').style.display = 'none';
+            document.getElementById('quizResults').style.display = 'block';
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            document.getElementById('scorePercentage').textContent = percentage + '%';
+            document.getElementById('scoreText').textContent = score + '/' + questions.length;
+            
+            let message = '';
+            if (percentage >= 90) {
+                message = '¡Excelente! Tienes un dominio excepcional de los límites.';
+            } else if (percentage >= 70) {
+                message = '¡Bien hecho! Comprendes bien el concepto de límite.';
+            } else if (percentage >= 50) {
+                message = 'Puedes mejorar. Practica más con límites básicos.';
+            } else {
+                message = 'Necesitas reforzar los conceptos. Revisa la teoría de límites.';
+            }
+            
+            document.getElementById('resultsMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quizContent').style.display = 'block';
+            document.getElementById('quizResults').style.display = 'none';
+            showQuestion();
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initQuiz();
+            
+            // Actualizar botones cuando se selecciona una opción
+            document.addEventListener('change', function(e) {
+                if (e.target.name === 'answer') {
+                    updateNavigationButtons();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

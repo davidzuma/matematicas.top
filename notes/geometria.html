@@ -137,6 +137,11 @@
         <div class="notes-header">
             <h1><i class="fas fa-shapes"></i> Apuntes de Geometría Analítica</h1>
             <p>Geometría en el plano cartesiano</p>
+            <div class="quiz-button">
+                <button onclick="openQuizModal()">
+                    <i class="fas fa-pencil-alt"></i> Hacer Cuestionario
+                </button>
+            </div>
         </div>
 
         <div class="section">
@@ -292,11 +297,45 @@
 
         <div class="quiz-button">
             <h3>¿Listo para poner a prueba tus conocimientos?</h3>
-            <button onclick="window.open('../index.html#quiz-modal', '_self');">
+            <button onclick="openQuizModal()">
                 <i class="fas fa-pencil-alt"></i> Hacer Cuestionario de Geometría
             </button>
         </div>
     </main>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal" style="display: none;">
+        <div class="modal-content quiz-modal-content">
+            <div class="quiz-header">
+                <h2><i class="fas fa-shapes"></i> Cuestionario de Geometría Analítica</h2>
+                <span class="close" onclick="closeQuizModal()">&times;</span>
+            </div>
+            <div class="quiz-content">
+                <div id="quiz-start" class="quiz-section">
+                    <p>Pon a prueba tus conocimientos sobre geometría analítica con este cuestionario.</p>
+                    <button onclick="startQuiz()" class="quiz-btn primary">Comenzar Cuestionario</button>
+                </div>
+                
+                <div id="quiz-question" class="quiz-section" style="display: none;">
+                    <div class="question-counter">
+                        <span id="current-question">1</span> de <span id="total-questions">10</span>
+                    </div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options" id="options"></div>
+                    <button onclick="nextQuestion()" id="next-btn" class="quiz-btn primary" style="display: none;">Siguiente</button>
+                </div>
+                
+                <div id="quiz-result" class="quiz-section" style="display: none;">
+                    <div class="result-icon" id="result-icon"></div>
+                    <h3 id="result-title"></h3>
+                    <p id="result-message"></p>
+                    <div class="score" id="score"></div>
+                    <button onclick="restartQuiz()" class="quiz-btn primary">Repetir Cuestionario</button>
+                    <button onclick="closeQuizModal()" class="quiz-btn secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -308,5 +347,407 @@
             </div>
         </div>
     </footer>
+    
+    <style>
+        /* Quiz Modal Styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .quiz-modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 5% auto;
+            padding: 0;
+            border: none;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .quiz-header {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .quiz-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .close:hover {
+            opacity: 1;
+        }
+
+        .quiz-content {
+            padding: 2rem;
+        }
+
+        .quiz-section {
+            text-align: center;
+        }
+
+        .question-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .option.selected {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+
+        .option.correct {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+        }
+
+        .option.incorrect {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #F44336;
+        }
+
+        .quiz-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .quiz-btn.primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .quiz-btn.primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .quiz-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .quiz-btn.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-modal-content {
+                width: 95%;
+                margin: 2% auto;
+                max-height: 90vh;
+            }
+            
+            .quiz-header {
+                padding: 1rem;
+            }
+            
+            .quiz-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+    
+    <script>
+        const geometriaQuestions = [
+            {
+                question: "¿Cuál es la fórmula para calcular la distancia entre dos puntos A(x₁, y₁) y B(x₂, y₂)?",
+                options: [
+                    "d = √[(x₂ + x₁)² + (y₂ + y₁)²]",
+                    "d = √[(x₂ - x₁)² + (y₂ - y₁)²]",
+                    "d = (x₂ - x₁)² + (y₂ - y₁)²",
+                    "d = |x₂ - x₁| + |y₂ - y₁|"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el punto medio entre A(2, 4) y B(8, 10)?",
+                options: [
+                    "M(3, 5)",
+                    "M(5, 7)",
+                    "M(6, 6)",
+                    "M(10, 14)"
+                ],
+                correct: 1
+            },
+            {
+                question: "La ecuación y = 3x + 2 representa una recta. ¿Cuál es su pendiente?",
+                options: [
+                    "2",
+                    "3",
+                    "5",
+                    "3x"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuándo dos rectas son perpendiculares?",
+                options: [
+                    "Cuando tienen la misma pendiente",
+                    "Cuando sus pendientes suman cero",
+                    "Cuando el producto de sus pendientes es -1",
+                    "Cuando se intersectan en el origen"
+                ],
+                correct: 2
+            },
+            {
+                question: "La ecuación (x - 3)² + (y + 2)² = 16 representa:",
+                options: [
+                    "Una recta",
+                    "Una parábola",
+                    "Una circunferencia con centro (3, -2) y radio 4",
+                    "Una elipse"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es la ecuación general de una circunferencia?",
+                options: [
+                    "y = ax² + bx + c",
+                    "x² + y² + Dx + Ey + F = 0",
+                    "Ax + By + C = 0",
+                    "x²/a² + y²/b² = 1"
+                ],
+                correct: 1
+            },
+            {
+                question: "La ecuación x² = 4py representa:",
+                options: [
+                    "Una circunferencia",
+                    "Una elipse",
+                    "Una parábola que abre verticalmente",
+                    "Una hipérbola"
+                ],
+                correct: 2
+            },
+            {
+                question: "Si u⃗ = (3, 4), ¿cuál es el módulo del vector?",
+                options: [
+                    "7",
+                    "5",
+                    "12",
+                    "√7"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es la ecuación canónica de una elipse con centro en el origen?",
+                options: [
+                    "x² + y² = r²",
+                    "x²/a² + y²/b² = 1",
+                    "x²/a² - y²/b² = 1",
+                    "y² = 4px"
+                ],
+                correct: 1
+            },
+            {
+                question: "La pendiente de una recta que pasa por los puntos (1, 2) y (5, 10) es:",
+                options: [
+                    "2",
+                    "4",
+                    "8",
+                    "1/2"
+                ],
+                correct: 0
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+
+        function openQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            restartQuiz();
+        }
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'block';
+            document.getElementById('total-questions').textContent = geometriaQuestions.length;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = geometriaQuestions[currentQuestionIndex];
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            selectedAnswer = null;
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index, optionElement);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        function selectAnswer(answerIndex, optionElement) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = answerIndex;
+            const question = geometriaQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (answerIndex === question.correct) {
+                score++;
+            }
+            
+            setTimeout(() => {
+                document.getElementById('next-btn').style.display = 'block';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < geometriaQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+            
+            const percentage = Math.round((score / geometriaQuestions.length) * 100);
+            
+            const resultIcon = document.getElementById('result-icon');
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            
+            if (percentage >= 80) {
+                resultIcon.innerHTML = '🏆';
+                resultTitle.textContent = '¡Excelente!';
+                resultMessage.textContent = 'Dominas muy bien los conceptos de geometría analítica.';
+            } else if (percentage >= 60) {
+                resultIcon.innerHTML = '👍';
+                resultTitle.textContent = '¡Bien!';
+                resultMessage.textContent = 'Tienes un buen conocimiento, pero puedes mejorar un poco más.';
+            } else {
+                resultIcon.innerHTML = '📚';
+                resultTitle.textContent = 'Sigue practicando';
+                resultMessage.textContent = 'Te recomendamos repasar los conceptos y volver a intentarlo.';
+            }
+            
+            document.getElementById('score').innerHTML = `${score}/${geometriaQuestions.length}<br><span style="font-size: 1.2rem;">${percentage}%</span>`;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+
+        // También actualizar el botón del header
+        document.querySelector('.notes-header .quiz-button button').onclick = openQuizModal;
+    </script>
 </body>
 </html>

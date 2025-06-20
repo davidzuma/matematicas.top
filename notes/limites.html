@@ -137,6 +137,11 @@
         <div class="notes-header">
             <h1><i class="fas fa-square-root-alt"></i> Apuntes de Límites</h1>
             <p>Comprende los límites de funciones paso a paso</p>
+            <div class="quiz-button">
+                <button onclick="openQuizModal()">
+                    <i class="fas fa-pencil-alt"></i> Hacer Cuestionario
+                </button>
+            </div>
         </div>
 
         <div class="section">
@@ -268,11 +273,58 @@
 
         <div class="quiz-button">
             <h3>¿Listo para poner a prueba tus conocimientos?</h3>
-            <button onclick="window.open('../index.html#quiz-modal', '_self');">
+            <button onclick="openQuizModal()">
                 <i class="fas fa-pencil-alt"></i> Hacer Cuestionario de Límites
             </button>
         </div>
     </main>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal" style="display: none;">
+        <div class="modal-content quiz-modal-content">
+            <span class="close" onclick="closeQuiz()">&times;</span>
+            <div id="quiz-container">
+                <div class="quiz-header">
+                    <h3 id="quiz-title">Cuestionario de Límites</h3>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span id="question-counter">1 / 5</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-content">
+                    <div class="question-section">
+                        <h4 id="question-text">Pregunta aparecerá aquí</h4>
+                        <div id="question-options" class="options-container">
+                            <!-- Las opciones se generarán dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resultados del quiz -->
+                <div id="quiz-results" class="quiz-results" style="display: none;">
+                    <div class="results-header" style="text-align: center; margin-bottom: 1rem;">
+                        <i class="fas fa-trophy" style="font-size: 2rem; color: #f0c419;"></i>
+                        <h3 style="margin: 0.5rem 0;">¡Quiz Completado!</h3>
+                    </div>
+                    <div class="results-body" style="text-align: center;">
+                        <p id="score-percentage" style="font-size: 2.5rem; font-weight: bold; color: #4caf50; margin: 0.2rem 0;">0%</p>
+                        <p style="margin: 0.5rem 0;">Respuestas correctas: <strong><span id="correct-answers">0</span></strong> / <strong><span id="total-questions">5</span></strong></p>
+                    </div>
+                    <div class="results-actions" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-primary" onclick="restartQuiz()" style="padding: 0.5rem 1rem;">
+                            <i class="fas fa-redo"></i> Repetir
+                        </button>
+                        <button class="btn btn-secondary" onclick="closeQuiz()" style="padding: 0.5rem 1rem;">
+                            <i class="fas fa-times"></i> Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -284,5 +336,135 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Quiz de Límites
+        const quizQuestions = [
+            {
+                question: "¿Cuál es el límite de (x² - 1)/(x - 1) cuando x tiende a 1?",
+                options: ["0", "1", "2", "No existe"],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el límite de x cuando x tiende a 3?",
+                options: ["0", "3", "∞", "No existe"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de sin(x)/x cuando x tiende a 0?",
+                options: ["0", "1", "∞", "No existe"],
+                correct: 1
+            },
+            {
+                question: "Si lim f(x) = 5 y lim g(x) = 3, ¿cuál es lim [f(x) + g(x)]?",
+                options: ["2", "8", "15", "No se puede determinar"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el límite de 1/x cuando x tiende a 0 por la derecha?",
+                options: ["0", "1", "+∞", "-∞"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        function openQuizModal() {
+            document.getElementById('quiz-modal').style.display = 'block';
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('quiz-results').style.display = 'none';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('question-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                optionBtn.onclick = () => selectOption(index);
+                optionBtn.innerHTML = `
+                    <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                    <span>${option}</span>
+                `;
+                optionsContainer.appendChild(optionBtn);
+            });
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            document.getElementById('question-counter').textContent = `${currentQuestionIndex + 1} / ${quizQuestions.length}`;
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Visual feedback
+            document.querySelectorAll('.option-btn').forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('selected');
+                if (idx === optionIndex) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            setTimeout(() => {
+                if (currentQuestionIndex < quizQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    finishQuiz();
+                }
+            }, 800);
+        }
+
+        function finishQuiz() {
+            // Calculate score
+            score = 0;
+            quizQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    score++;
+                }
+            });
+            
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            
+            // Show results
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            document.getElementById('score-percentage').textContent = percentage + '%';
+            document.getElementById('correct-answers').textContent = score;
+            document.getElementById('total-questions').textContent = quizQuestions.length;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('quiz-results').style.display = 'none';
+            showQuestion();
+        }
+
+        function closeQuiz() {
+            document.getElementById('quiz-modal').style.display = 'none';
+        }
+
+        // También actualizar el botón del header
+        document.querySelector('.notes-header .quiz-button button').onclick = openQuizModal;
+    </script>
 </body>
 </html>

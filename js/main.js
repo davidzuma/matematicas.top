@@ -1,5 +1,15 @@
 // Enhanced JavaScript for matematicas.top
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a quiz parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const quizSubject = urlParams.get('quiz');
+    if (quizSubject) {
+        // Wait a bit for the page to load completely, then start the quiz
+        setTimeout(() => {
+            startQuiz(quizSubject);
+        }, 1000);
+    }
+    
     // Hide loading spinner
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner) {

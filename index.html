@@ -166,15 +166,14 @@
                             <li>✓ Sustitución trigonométrica</li>
                             <li>✓ +50 ejercicios resueltos</li>
                         </ul>
-                        <a href="notes/integrales.html" class="btn btn-primary">
-                            Apuntes
-                        </a>
-                        <button class="btn btn-secondary" onclick="buyNotes('integrales')">
-                            <i class="fas fa-shopping-cart"></i> Comprar Ahora
-                        </button>
-                        <button class="btn btn-practice" onclick="startQuiz('integrales')">
-                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
-                        </button>
+                        <div class="note-actions">
+                            <a href="notes/integrales.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('integrales')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="note-card">
@@ -190,15 +189,60 @@
                             <li>✓ Regla de L'Hôpital</li>
                             <li>✓ +35 ejercicios resueltos</li>
                         </ul>
-                        <a href="notes/limites.html" class="btn btn-primary">
-                            Apuntes
-                        </a>
-                        <button class="btn btn-secondary" onclick="buyNotes('limites')">
-                            <i class="fas fa-shopping-cart"></i> Comprar
-                        </button>
-                        <button class="btn btn-practice" onclick="startQuiz('limites')">
-                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
-                        </button>
+                        <div class="note-actions">
+                            <a href="notes/limites.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('limites')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="note-card">
+                        <div class="note-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Derivadas</h3>
+                        <p class="note-description">Todo sobre derivadas y sus aplicaciones</p>
+                        <ul class="note-features">
+                            <li>✓ Reglas de derivación</li>
+                            <li>✓ Derivada de funciones compuestas</li>
+                            <li>✓ Aplicaciones geométricas</li>
+                            <li>✓ Optimización</li>
+                            <li>✓ +40 ejercicios resueltos</li>
+                        </ul>
+                        <div class="note-actions">
+                            <a href="notes/derivadas.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('derivadas')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="note-card">
+                        <div class="note-icon">
+                            <i class="fas fa-functions"></i>
+                        </div>
+                        <h3>Funciones</h3>
+                        <p class="note-description">Funciones y sus propiedades esenciales</p>
+                        <ul class="note-features">
+                            <li>✓ Tipos de funciones</li>
+                            <li>✓ Dominio y recorrido</li>
+                            <li>✓ Composición de funciones</li>
+                            <li>✓ Función inversa</li>
+                            <li>✓ +30 ejercicios resueltos</li>
+                        </ul>
+                        <div class="note-actions">
+                            <a href="notes/funciones.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('funciones')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="note-card">
@@ -214,15 +258,14 @@
                             <li>✓ Distancias y ángulos</li>
                             <li>✓ +25 ejercicios resueltos</li>
                         </ul>
-                        <a href="notes/geometria.html" class="btn btn-primary">
-                            Apuntes
-                        </a>
-                        <button class="btn btn-secondary" onclick="buyNotes('geometria')">
-                            <i class="fas fa-shopping-cart"></i> Comprar
-                        </button>
-                        <button class="btn btn-practice" onclick="startQuiz('geometria')">
-                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
-                        </button>
+                        <div class="note-actions">
+                            <a href="notes/geometria.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('geometria')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="note-card">
@@ -238,15 +281,14 @@
                             <li>✓ Correlación y regresión</li>
                             <li>✓ +20 ejercicios resueltos</li>
                         </ul>
-                        <a href="notes/estadistica.html" class="btn btn-primary">
-                            Apuntes
-                        </a>
-                        <button class="btn btn-secondary" onclick="buyNotes('estadistica')">
-                            <i class="fas fa-shopping-cart"></i> Comprar
-                        </button>
-                        <button class="btn btn-practice" onclick="startQuiz('estadistica')">
-                            <i class="fas fa-pencil-alt"></i> ¡Práctica!
-                        </button>
+                        <div class="note-actions">
+                            <a href="notes/estadistica.html" class="btn btn-primary">
+                                Apuntes
+                            </a>
+                            <button class="btn btn-practice" onclick="startQuiz('estadistica')">
+                                <i class="fas fa-pencil-alt"></i> Práctica
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -497,9 +539,10 @@
                     <ul>
                         <li><a href="#apuntes">Integrales</a></li>
                         <li><a href="#apuntes">Límites</a></li>
+                        <li><a href="#apuntes">Derivadas</a></li>
+                        <li><a href="#apuntes">Funciones</a></li>
                         <li><a href="#apuntes">Geometría Analítica</a></li>
                         <li><a href="#apuntes">Probabilidad y Estadística</a></li>
-                        <li><a href="#recursos">Recursos Gratuitos</a></li>
                     </ul>
                 </div>
                 
